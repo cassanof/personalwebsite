@@ -1,0 +1,18 @@
+{
+  "name": "three-demo",
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "devDependencies": {
+    "eslint": "^7.27.0",
+    "vite": "^2.3.4"
+  },
+  "dependencies": {
+    "three": "^0.129.0",
+    "three-mtl-loader": "^1.0.2",
+    "typescript": "^4.3.2"
+  }
+}
