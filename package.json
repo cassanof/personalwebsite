@@ -13,6 +13,7 @@
   "dependencies": {
     "three": "^0.129.0",
     "three-mtl-loader": "^1.0.2",
+    "threejs-interactive-object": "git+https://github.com/MasatoMakino/threejs-interactive-object.git",
     "typescript": "^4.3.2"
   }
 }

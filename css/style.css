@@ -1,0 +1,142 @@
+@import url("https://use.typekit.net/jmk3xov.css");
+
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(14, 107, 14, 1) rgba(24, 24, 24, 1);
+}
+
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(24, 24, 24, 1);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba(14, 107, 14, 1);
+  border-radius: 20px;
+  border: 3px solid rgba(24, 24, 24, 1);
+}
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding-bottom: 20vh;
+}
+
+
+:root {
+  --dark-bg: rgba(15, 15, 15, 0.95);
+  --spacing: 350px;
+
+  font-family: brandon-grotesque, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+main {
+  width: 100vw;
+  color: white;
+  z-index: 99;
+  position: relative;
+  width: 100%;
+  top: 100vh;
+  margin: 0px auto;
+  padding: 120px 0px;
+  
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+}
+
+h1, h2, h3, blockquote {
+  font-family: Tahoma, sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+#scrollmsg {
+  position: relative;
+  bottom: 11vh;
+  padding-bottom: 50%;
+}
+
+.scrollers {
+  left: 50%;
+  transform: translateY(0%) rotate(45deg);
+  
+  opacity: 0;
+}
+
+@keyframes scrolldown {
+  0%{
+      transform: translateY(20%) rotate(45deg);
+      opacity: 0.7;
+  }
+  50%{
+      transform: translateY(0%) rotate(45deg);
+      opacity: 0.2;
+  }
+  100%{
+      transform: translateY(20%) rotate(45deg);
+      opacity: 0.7;
+  }
+}
+
+#scrollmsg p {
+  font-size: 5vw;
+}
+
+small {
+  font-size: 20px;
+}
+
+canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+
+body {
+  overflow-x: hidden;
+}
+
+
+header {
+  background: var(--dark-bg);
+  grid-column: 2 / span 5;
+  font-size: 2.5rem;
+  padding: 2rem;
+  margin-bottom: var(--spacing);
+}
+
+section {
+  grid-column: 2 / 8;
+  padding: 1rem;
+  background: var(--dark-bg);
+  font-size: 1.25rem;
+  line-height: 1.5;
+  margin-bottom: var(--spacing);
+}
+
+blockquote {
+  margin: 0;
+  padding: 0;
+  grid-column: 2 / span 9;
+  margin-bottom: var(--spacing);
+}
+
+blockquote p {
+  color: black;
+  background-color: white;
+  font-size: 4rem;
+  display: inline;
+  line-height: 1;
+}
+
+.left {
+  grid-column: 6 / 12;
+}

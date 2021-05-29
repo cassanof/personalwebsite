@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Federico Cassano's Portfolio</title>
   </head>
@@ -12,15 +12,23 @@
 
     <main>
 
-      <header>
+      <header id="welcome">
         <h1>Federico Cassano</h1>
-        <p>Welcome to my website!</p>
+        <p>
+        Welcome to my Portfolio!<br>
+          <small>
+            It looks like WebGL is not enabled...<br>
+            Please enable WebGL to show amazing 3D Graphics, this website heavily depends on it.
+          </small>
+        </p>
       </header>
 
 
-      <blockquote>
-        <p>I like making stuff and putting it on the internet</p>
-      </blockquote>
+      <Div class="scrollers" style="width: 2em; height: 2em; background-color: transparent; z-index: 80; 
+            bottom: 25px; position: fixed; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite 0.15s;"></Div>
+            <Div class="scrollers" style="width: 2em; height: 2em; background-color: transparent; z-index: 80; 
+            bottom: 40px; position: fixed; border-width: 0 0.25em 0.25em 0; border-style: solid; border-color: antiquewhite; animation: scrolldown 1.2s ease-in-out infinite;">
+      </Div>
 
       <section>
         <h2>Manifesto</h2>
@@ -28,7 +36,7 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
-        <p>
+<p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
@@ -77,6 +85,7 @@
         <p>Thanks for watching!</p>
       </blockquote>
     </main>
-    <script type="module" src="/3d.js"></script>
+    <script type="module" src="./js/3d.js"></script>
+    <script type="module" src="./js/main.js"></script>
   </body>
 </html>
