@@ -237,7 +237,7 @@ mtlLoader.load("/models/emailLogo/obj.mtl", function (materials) {
 
     emailLogo.rotation.x = -0.2;
 
-    emailLogo.name = "twitterLogo";
+    emailLogo.name = "emailLogo";
 
     emailLogoLoaded = true;
   });
@@ -276,8 +276,9 @@ strip.rotation.x = 0.6;
 
 // Scroll Animation
 
+let t;
 function moveCamera() {
-  const t = document.body.getBoundingClientRect().top;
+  t = document.body.getBoundingClientRect().top;
   camera.position.z = 1.50 + t * -0.01;
 }
 
@@ -297,7 +298,7 @@ function animate() {
 function render() {
   raycaster.setFromCamera(pointer, camera);
 
-  if (gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) {
+  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t > -600) {
     var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(
       linkedinLogo.children, 
       twitterLogo.children,
@@ -335,6 +336,9 @@ function onMouseClick(event) {
         break;
       case "twitterLogo":
         window.open("https://twitter.com/FedericoCassa17", "_blank");
+        break;
+      case "emailLogo":
+        window.open("mailto:federico.cassano@federco.codes");
         break;
       default:
       // do nuttin

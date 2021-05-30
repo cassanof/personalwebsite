@@ -48,7 +48,7 @@ const hideScroll = async () => {
     function(element) {
       element.hidden=true;
     });
-    await delay(4000);
+    await delay(7000);
     Array.from(document.getElementsByClassName("scrollers")).forEach(
     function(element) {
       element.hidden=false;

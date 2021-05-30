@@ -5,6 +5,9 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Federico Cassano's Portfolio</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9cdffaf432.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <canvas id="bg"></canvas>
@@ -77,7 +80,7 @@
       </Div>
 
       <section>
-        <h2>Intro</h2>
+        <h2 class="pb-4">Intro</h2>
         <p>
           Hello and welcome to my portfolio. I am Federico Cassano, an international student from Milan.
           I am currently part of Northeastern University's class of 2025 where I'm studying in the B.S. Cybersecurity program.
@@ -96,35 +99,121 @@
 
         <p>
         You may wonder how I made this 3D website (enable WebGL in your browser if you can't see them). 
-        I used a combination of <a href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a> and mathematics to 
-        create objects, then i made the clickable icons using a ray-casting beam that intercepts those objects. You can find the code for this website <a href="https://github.com/elleven11/personalwebsite">here</a>.
+        I used a combination of <a class="link-secondary" href="https://github.com/mrdoob/three.js/" target="_blank">three.js</a> and mathematics to 
+        create objects, then i made the clickable icons using a ray-casting beam that intercepts those objects. You can find the code for this website <a class="link-secondary" href="https://github.com/elleven11/personalwebsite">here</a>.
         </p>
       </section>
 
-      <section>
-        <h2>Projects</h2>
+      <section class="display">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="align"><i class="fa fa-desktop"></i></div>
+                    <h1 id="folio-headline">Highlighted Projects</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4 box">
+                    <div class="mask2">
+                        <a href="https://federico.codes/searx/" target="_blank"><img src="assets/searx-logo.jpeg" alt="Searx logo"></a>
+                    </div>
+                    <div class="inside">
+                        <h2>Searx encrypted search engine</h2>
+                        <div class="entry-content">
+                            <p>I modified Searx, which is a open-source search engine that combines all popular search results from google, duckduckgo, bing, etc... I made so that every search
+                                and image lookup goes through a Morty encrypted socket and queries are proxied with filtron to ensure confidentiality and integrity</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-sm-12 col-md-6 col-lg-4 box">
+                    <div class="mask2">
+                        <a href="https://github.com/elleven11/inventory_app_public" target="_blank"><img src="assets/inventory_app_icon.png" alt="Inventory App logo"></a>
+                    </div>
+                    <div class="inside">
+                        <h2>Mobile Inventory App</h2>
+                        <div class="entry-content">
+                            <p>A mobile Inventory App written in Flutter that works both on iOS and Android.
+                                It utilizes Firebase as it's backend as well as it's own API for pictures of items.
+                                It features QR Codes, Item Borrowing and personal database creation.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-sm-12 col-md-6 col-lg-4 box">
+                    <div class="mask2">
+                        <a href="https://github.com/elleven11/dotfiles" target="_blank"><img src="assets/archlogo.jpeg" alt="archlinux logo"></a>
+                    </div>
+                    <div class="inside">
+                        <h2>Arch based OS</h2>
+                        <div class="entry-content">
+                            <p>My <b>GNU+Linux</b> arch-based operating system that i use daily, i use XFCE as my desktop environment and dwm as my window manager</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- col end -->
+                <div class="col-sm-12 col-md-6 col-lg-4 box">
+                    <div class="mask2">
+                        <a href="https://github.com/elleven11/patient_api" target="_blank"><img src="assets/teddy.png" alt="teddy logo"></a>
+                    </div>
+                    <div class="inside">
+                        <h2>Teddy for Cancer Patients</h2>
+                        <div class="entry-content">
+                            <p>Teddy is an API written in Go that predicts the probability of being diagnosed with cancer by using natural language processing and machine learning.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- col end -->
+            </div>
 
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-
-        <h2>Accomplishments</h2>
-
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="align"><i class="fa fa-file-text"></i></div>
+                    <h1 id="folio-headline">Certifications</h1>
+                </div>
+            </div>
+            <div class="row">
+            <!-- col end -->
+            <div class="col-sm-12 col-md-6 col-lg-4 box">
+                <div class="mask2">
+                    <a href="https://courses.edx.org/certificates/ea0ad8ead4034b6a8e84ceb22de1226f" target="_blank"><img src="https://courses.edx.org/asset-v1:MITx+6.00.1x+1T2020+type@thumbnail+block@course_image-375x200.jpg" alt="mitlogo1x"></a>
+                </div>
+                <div class="inside">
+                    <h2>MITx - 6.00.1x</h2>
+                    <div class="entry-content">
+                        <p>
+                        <b>Introduction to Computer Science and Programming Using Python</b><br />
+                        Passed the course with a grade of A+<br />
+                        <b>I learned about:</b><br />
+                        Python Programming, Elements of a Program, Structured Types,
+                        Good Programming Practices, Testing and Debugging, Exceptions and Assertions,
+                        Obejct Oriented Programming, Computational Complexity, Big O Notation, 
+                        Searching and Sorting Algorithms, Plotting and Charting.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        <!-- container end -->
+            <!-- col end -->
+            <div class="col-sm-12 col-md-6 col-lg-4 box">
+                <div class="mask2">
+                    <a href="https://courses.edx.org/certificates/a3b2318f099c4a0aa303f4dbf5515aaa" target="_blank"><img src="https://courses.edx.org/asset-v1:MITx+6.00.2x+1T2020+type@thumbnail+block@course_image-375x200.jpg" alt="mitlogo2x"></a>
+                </div>
+                <div class="inside">
+                    <h2>MITx - 6.00.2x</h2>
+                    <div class="entry-content">
+                        <p>
+                        <b>Introduction to Computational Thinking and Data Science</b><br />
+                        Passed the course with a grade of A<br />
+                        <b>I learned about:</b><br />
+                        Simulations, Machine Learning, Graph Theory, Dynamic Programming, Optimization, 
+                        Decision Trees, Knapsack Problem, Stochastic Thinking, Inferential Statistics, Sampling, Standard Error 
+                        Experimental Data, Statistical Fallacies.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            </div>
       </section>
 
       <blockquote>
@@ -132,41 +221,26 @@
       </blockquote>
 
       <section>
-        <h2>Work History</h2>
-        <h3>McDonalds</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Burger King</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <h3>Taco Bell</h3>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+        <h2 class="pb-4">Work History</h2>
+        <h3>Quiko.net - June 2020 - July 2020</h3>
+        <h5>System Administrator, Software Developer</h5>
+        <ul class="pb-4">
+          <li>Worked on developing the backend</li>
+          <li>Worked on administering the linux system</li>
+        </ul>
+        <h3>Tourtrap - Dec 2019 to May 2020</h3>
+        <h5>Chief Technology Officer</h5>
+        <ul class="pb-4">
+          <li>Administered and coordinated the development of the product</li>
+          <li>Created the project structure and architecture</li>
+        </ul>
+        <h3>EziCommunity/SvapoMC - Feb 2016 to Dec 2019</h3>
+        <h5>Co-Owner</h5>
+        <ul class="pb-4">
+          <li>Developed infrastructures and server applications</li>
+          <li>Administered technical and financial aspects of the community.</li>
+        </ul>
       </section>
-      <blockquote>
-        <p>Thanks for watching!</p>
-      </blockquote>
     </main>
     <script type="module" src="./js/3d.js"></script>
     <script type="module" src="./js/main.js"></script>

@@ -20,7 +20,6 @@ canvas {
   position: fixed;
   top: 0;
   left: 0;
-  padding-bottom: 20vh;
 }
 
 
@@ -56,6 +55,61 @@ canvas {
     opacity: 0.5;
 }
 
+..display .entry-content {
+    margin: 1em 0 2.5em;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+}
+
+.display {
+    padding-bottom: 0;
+}
+
+.display h1 {
+    font-size: 36px;
+    margin-bottom: 1em;
+    margin-top: 0.5em;
+}
+
+.display h2 {
+    margin-top: 1em;
+    text-align: center;
+    text-transform: capitalize;
+    font-size: 24px;
+}
+
+.display h3 {
+    margin-top: .35em;
+    text-align: center;
+    color: #aaa;
+}
+
+.display .entry-content {
+    margin: 1em 0 2.5em;
+    font-family: Arial;
+    font-size: 20px;
+    text-align: center;
+}
+
+.display .align {
+    text-align: center;
+    margin-top: 10px;
+    font-size: 6em;
+}
+
+.display .box {
+    margin: auto;
+}
+
+.display #folio-headline {
+    text-align: center;
+}
+
+.display .row {
+  padding-bottom: 10vh;
+}
+
 
 main {
   width: 100vw;
@@ -66,6 +120,7 @@ main {
   top: 100vh;
   margin: 0px auto;
   padding: 120px 0px;
+
   
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -157,4 +212,29 @@ blockquote p {
   font-size: 4rem;
   display: inline;
   line-height: 1;
+}
+
+.mask2 img {
+    margin: 0 auto;
+    width: 50%;
+    height: auto;
+    border-radius: 5%;
+    border: 3px solid #000;
+    max-width: 80%;
+    display: block;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+    filter: alpha(opacity=80);
+    opacity: 0.8;
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.mask2 img:hover {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+    filter: alpha(opacity=99);
+    opacity: 1;
 }
