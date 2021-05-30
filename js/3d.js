@@ -142,9 +142,9 @@ mtlLoader.load("/models/gitHubLogo/obj.mtl", function (materials) {
 
     gitHubLogo.castShadow = false;
 
-    gitHubLogo.scale.set(0.006, 0.006, 0.006);
+    gitHubLogo.scale.set(0.004, 0.004, 0.004);
 
-    gitHubLogo.position.x = -4.3;
+    gitHubLogo.position.x = -4.25;
     gitHubLogo.position.z = -6.5;
     gitHubLogo.position.y = -0.7;
 
@@ -214,6 +214,34 @@ mtlLoader.load("/models/twitterLogo/obj.mtl", function (materials) {
   });
 });
 
+// Email logo
+let emailLogo;
+let emailLogoLoaded = false;
+
+mtlLoader.load("/models/emailLogo/obj.mtl", function (materials) {
+  materials.preload();
+
+  const objLoader = new OBJLoader();
+  objLoader.setMaterials(materials);
+  objLoader.load("/models/emailLogo/tinker.obj", function (obj) {
+    emailLogo = obj;
+    scene.add(emailLogo);
+
+    emailLogo.castShadow = false;
+
+    emailLogo.scale.set(0.005, 0.005, 0.005);
+
+    emailLogo.position.x = -4.35;
+    emailLogo.position.z = -6.5;
+    emailLogo.position.y = -3;
+
+    emailLogo.rotation.x = -0.2;
+
+    emailLogo.name = "twitterLogo";
+
+    emailLogoLoaded = true;
+  });
+});
 
 // Welcome Text
 
@@ -250,7 +278,7 @@ strip.rotation.x = 0.6;
 
 function moveCamera() {
   const t = document.body.getBoundingClientRect().top;
-  camera.position.z = 2 + t * -0.01;
+  camera.position.z = 1.50 + t * -0.01;
 }
 
 document.body.onscroll = moveCamera;
@@ -270,7 +298,11 @@ function render() {
   raycaster.setFromCamera(pointer, camera);
 
   if (gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) {
-    var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(linkedinLogo.children, twitterLogo.children));
+    var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(
+      linkedinLogo.children, 
+      twitterLogo.children,
+      emailLogo.children
+    ));
 
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
