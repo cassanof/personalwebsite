@@ -278,8 +278,8 @@ strip.rotation.x = 0.6;
 
 let t;
 function moveCamera() {
-  t = document.body.getBoundingClientRect().top;
-  camera.position.z = 1.50 + t * -0.01;
+  t = window.scrollY;
+  camera.position.z = 1.50 + (t*-1) * -0.01;
 }
 
 document.body.onscroll = moveCamera;
@@ -298,7 +298,7 @@ function animate() {
 function render() {
   raycaster.setFromCamera(pointer, camera);
 
-  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t > -600) {
+  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t < 475) {
     var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(
       linkedinLogo.children, 
       twitterLogo.children,
