@@ -279,7 +279,7 @@ strip.rotation.x = 0.6;
 let t;
 function moveCamera() {
   t = window.scrollY;
-  camera.position.z = 1.50 + (t*-1) * -0.01;
+  camera.position.z = 1.50 + ~t * -0.01;
 }
 
 document.body.onscroll = moveCamera;
