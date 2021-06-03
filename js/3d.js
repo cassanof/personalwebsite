@@ -298,7 +298,7 @@ function animate() {
 function render() {
   raycaster.setFromCamera(pointer, camera);
 
-  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t < 475) {
+  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t < 600) {
     var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(
       linkedinLogo.children, 
       twitterLogo.children,
