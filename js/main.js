@@ -31,9 +31,15 @@ function detectWebGL()
 // disable welcome msg if webgl is on
 let hasWebGl=detectWebGL();
 console.log(`webgl status: ${hasWebGl}`)
+
 if(hasWebGl == 1) {
   let welcome = document.getElementById("welcome");
   welcome.remove();
+} else {
+  let canvas = document.getElementById("bg");
+  let main = document.getElementById("main");
+  canvas.remove();
+  main.style.top=0;
 }
 
 
