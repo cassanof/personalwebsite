@@ -2,7 +2,6 @@ import "/css/style.css";
 import * as THREE from "three";
 import { MTLLoaderG } from "/js/MTLLoader.js";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
-import {Object3D} from "three";
 export { phoneLoaded };
 
 // Setup
@@ -27,7 +26,6 @@ const renderer = new THREE.WebGLRenderer({
 const raycaster = new THREE.Raycaster();
 raycaster.prec
 
-// TODO: here
 let pointer = new THREE.Vector2();
 let INTERSECTED;
 
