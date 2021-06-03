@@ -1,5 +1,3 @@
-
-
 function detectWebGL()
 {
     // Check for the WebGL rendering context
@@ -55,12 +53,16 @@ const hideScroll = async () => {
       element.hidden=true;
     });
     await delay(7000);
-    Array.from(document.getElementsByClassName("scrollers")).forEach(
-    function(element) {
-      element.hidden=false;
-    });
+
+    if(window.scrollY < 600) {
+      Array.from(document.getElementsByClassName("scrollers")).forEach(
+      function(element) {
+        element.hidden=false;
+      });
+    }
+
     running = false;
-  }  
+  } 
 };
 
 
