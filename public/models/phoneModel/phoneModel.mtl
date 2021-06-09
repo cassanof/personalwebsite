@@ -1,6 +1,3 @@
-newmtl Display Material_5bd879a9-9a56-4679-895e-a2dbb04c1a98
-Kd 0.000 0.000 0.000
-d 1.000
 newmtl Display Outline 1 Material_138280a2-daf7-4066-811c-d664c39ceedf
 Kd 0.000 0.000 0.000
 d 1.000
@@ -13,49 +10,10 @@ d 1.000
 newmtl Antenas Material_a44c7844-f22a-4f68-858a-6c32dc663d68
 Kd 0.310 0.310 0.310
 d 1.000
-newmtl Rear Glass Material_0ab6317a-1add-4478-b260-aed2284e9a45
-Kd 0.212 0.212 0.212
-d 1.000
-newmtl Mute Switch Color Material_03c3b6a2-80bd-4f50-9fdf-58f661cb2b41
-Kd 1.000 0.435 0.000
-d 1.000
-newmtl Camera Base Material_fa44f0c9-337c-4857-8bb1-53902b3c451b
-Kd 0.212 0.212 0.212
-d 1.000
-newmtl Camera Rings Material_a8a9bcba-a7df-49d5-9de7-714f4d72bb07
-Kd 0.439 0.439 0.439
-d 1.000
-newmtl Lens Glass Material_07adf4c9-64f3-4ed4-a0e7-044c508f890d
+newmtl Playlist Background Material_b40d156f-caba-40d1-a8a9-15d9afd850b9
 Kd 1.000 1.000 1.000
 d 1.000
-map_Kd colorTexture&opacityTexture.png
-newmtl Lens Shade Material_5591f03a-42aa-4487-9eb1-6b6a9486cd78
-Kd 0.000 0.000 0.000
-d 1.000
-newmtl Lens 1 Material_09f031c8-7263-4e43-8759-7069b28f9fa6
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd Lens1_3.jpg
-newmtl Lens 2 Material_33519e83-a9b8-4c63-ae8f-b81811cf3ce6
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd Lens2_3.jpg
-newmtl Lens 3 Material_9f9935f4-8d7e-4fbb-8225-fe01387211fc
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd Lens3_3.jpg
-newmtl Grid Material_4ab08b9a-31fe-4848-9022-9bf71b6824f1
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd Grid_2.jpg
-newmtl Flash Material_12d2b5b4-cac1-408b-a2a0-dd4429adfb22
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd led_light_3.jpg
-newmtl Playlist Background Material_4df5ed0b-bd5a-440f-ac04-50034b089963
-Kd 1.000 1.000 1.000
-d 1.000
-map_Kd terminal_9.jpg
+map_Kd Black-Green_256x256_8.jpg
 newmtl White Emissive 2_45196040-15e0-44f1-8e5f-9cc0b54a77c3
 Kd 1.000 1.000 1.000
 d 1.000
@@ -73,10 +31,10 @@ newmtl Material_7d8e43da-2ae8-4d6c-a4e9-68a5b1bde58f
 Kd 1.000 1.000 1.000
 d 1.000
 map_Kd wp2261019_1.jpg
-newmtl Material 4_4e6812ee-edff-486a-9d52-b475b96e6d71
+newmtl Material 4_4220ab20-9940-4c83-9c7e-a6fbe9d0931c
 Kd 1.000 1.000 1.000
 d 1.000
-map_Kd faccia.jpg
+map_Kd faccia_1.jpg
 newmtl Gradient Material_11934c44-3938-40c2-8cc5-71a06c9d2f04
 Kd 1.000 1.000 1.000
 d 1.000
