@@ -24,7 +24,7 @@ const renderer = new THREE.WebGLRenderer({
 });
 
 const raycaster = new THREE.Raycaster();
-raycaster.prec
+raycaster.prec;
 
 let pointer = new THREE.Vector2();
 let INTERSECTED;
@@ -135,7 +135,7 @@ mtlLoader.load("/models/gitHubLogo/obj.mtl", function (materials) {
   const objLoader = new OBJLoader();
   objLoader.setMaterials(materials);
   objLoader.load("/models/gitHubLogo/tinker.obj", function (obj) {
-    gitHubLogo = obj
+    gitHubLogo = obj;
     scene.add(gitHubLogo);
 
     gitHubLogo.castShadow = false;
@@ -277,7 +277,7 @@ strip.rotation.x = 0.6;
 let t;
 function moveCamera() {
   t = window.scrollY;
-  camera.position.z = 1.50 + ~t * -0.01;
+  camera.position.z = 1.5 + ~t * -0.01;
 }
 
 document.body.onscroll = moveCamera;
@@ -296,12 +296,14 @@ function animate() {
 function render() {
   raycaster.setFromCamera(pointer, camera);
 
-  if ((gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded) && t < 600) {
-    var intersects = raycaster.intersectObjects(gitHubLogo.children.concat(
-      linkedinLogo.children, 
-      twitterLogo.children,
-      emailLogo.children
-    ));
+  if (gitHubLogoLoaded && linkedinLogoLoaded && twitterLogoLoaded && t < 600) {
+    var intersects = raycaster.intersectObjects(
+      gitHubLogo.children.concat(
+        linkedinLogo.children,
+        twitterLogo.children,
+        emailLogo.children
+      )
+    );
 
     if (intersects.length > 0) {
       if (INTERSECTED != intersects[0].object) {
