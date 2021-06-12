@@ -224,8 +224,6 @@ footer {
   margin: 0 !important;
   padding: 0;
   text-align: center;
-  text-decoration-line: underline;
-  text-underline-offset: 2px;
   grid-column: 1 / span 12;
   margin-bottom: var(--spacing);
 }
