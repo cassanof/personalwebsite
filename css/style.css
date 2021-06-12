@@ -22,7 +22,6 @@ canvas {
   left: 0;
 }
 
-
 :root {
   --dark-bg: rgba(15, 15, 15, 0.95);
   --spacing: 350px;
@@ -33,83 +32,82 @@ canvas {
 }
 
 .icon img {
-    width: 52px;
-    height: 52px;
+  width: 52px;
+  height: 52px;
 }
 
 .icon {
-    font-size: 54px;
-    margin: 0.5em 0 0.5em 0;
+  font-size: 54px;
+  margin: 0.5em 0 0.5em 0;
 }
 
 .icon li {
-    display: inline-block;
-    opacity: 1.0;
-    -webkit-transition: all 0.3s linear;
-    -moz-transition: all 0.3s linear;
-    -o-transition: all 0.3s linear;
-    transition: all 0.3s linear;
+  display: inline-block;
+  opacity: 1;
+  -webkit-transition: all 0.3s linear;
+  -moz-transition: all 0.3s linear;
+  -o-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
 
 .icon li:hover {
-    opacity: 0.5;
+  opacity: 0.5;
 }
 
 .display .entry-content {
-    margin: 1em 0 2.5em;
-    font-family: Arial;
-    font-size: 20px;
-    text-align: center;
+  margin: 1em 0 2.5em;
+  font-family: Arial;
+  font-size: 20px;
+  text-align: center;
 }
 
 .display {
-    padding-bottom: 0;
+  padding-bottom: 0;
 }
 
 .display h1 {
-    font-size: 36px;
-    margin-bottom: 1em;
-    margin-top: 0.5em;
+  font-size: 36px;
+  margin-bottom: 1em;
+  margin-top: 0.5em;
 }
 
 .display h2 {
-    margin-top: 1em;
-    text-align: center;
-    text-transform: capitalize;
-    font-size: 24px;
+  margin-top: 1em;
+  text-align: center;
+  text-transform: capitalize;
+  font-size: 24px;
 }
 
 .display h3 {
-    margin-top: .35em;
-    text-align: center;
-    color: #aaa;
+  margin-top: 0.35em;
+  text-align: center;
+  color: #aaa;
 }
 
 .display .entry-content {
-    margin: 1em 0 2.5em;
-    font-family: Arial;
-    font-size: 20px;
-    text-align: center;
+  margin: 1em 0 2.5em;
+  font-family: Arial;
+  font-size: 20px;
+  text-align: center;
 }
 
 .display .align {
-    text-align: center;
-    margin-top: 10px;
-    font-size: 6em;
+  text-align: center;
+  margin-top: 10px;
+  font-size: 6em;
 }
 
 .display .box {
-    margin: auto;
+  margin: auto;
 }
 
 .display #folio-headline {
-    text-align: center;
+  text-align: center;
 }
 
 .display .row {
   padding-bottom: 10vh;
 }
-
 
 main {
   width: 100vw;
@@ -121,18 +119,18 @@ main {
   margin: 0px auto;
   padding: 120px 0px;
 
-  
   display: grid;
   grid-template-columns: repeat(12, 1fr);
 }
 
-h1, h2, h3, blockquote {
+h1,
+h2,
+h3,
+blockquote {
   font-family: Tahoma, sans-serif;
   font-weight: 700;
   font-style: normal;
 }
-
-
 
 #scrollmsg {
   position: relative;
@@ -142,23 +140,32 @@ h1, h2, h3, blockquote {
 
 .scrollers {
   left: 50%;
-  transform: translateY(0%) rotate(45deg);
-  
+  transform: translate(-50%, 0%) rotate(45deg);
+  width: 2em;
+  height: 2em;
+  background-color: transparent;
+  position: fixed;
+  border-width: 0 0.25em 0.25em 0;
+  border-style: solid;
+  border-color: antiquewhite;
+  animation: scrolldown 1.2s ease-in-out infinite 0.15s;
+  z-index: 99;
+
   opacity: 0;
 }
 
 @keyframes scrolldown {
-  0%{
-      transform: translateY(20%) rotate(45deg);
-      opacity: 0.7;
+  0% {
+    transform: translate(-50%, 20%) rotate(45deg);
+    opacity: 0.7;
   }
-  50%{
-      transform: translateY(0%) rotate(45deg);
-      opacity: 0.2;
+  50% {
+    transform: translate(-50%, 0%)  rotate(45deg);
+    opacity: 0.2;
   }
-  100%{
-      transform: translateY(20%) rotate(45deg);
-      opacity: 0.7;
+  100% {
+    transform: translate(-50%, 20%) rotate(45deg);
+    opacity: 0.7;
   }
 }
 
@@ -176,12 +183,10 @@ canvas {
   left: 0;
 }
 
-
 body {
   background-color: var(--dark-bg);
   overflow-x: hidden;
 }
-
 
 header {
   background: var(--dark-bg) !important;
@@ -215,27 +220,37 @@ blockquote p {
   line-height: 1;
 }
 
+footer {
+  margin: 0 !important;
+  padding: 0;
+  text-align: center;
+  text-decoration-line: underline;
+  text-underline-offset: 2px;
+  grid-column: 1 / span 12;
+  margin-bottom: var(--spacing);
+}
+
 .mask2 img {
-    margin: 0 auto;
-    width: 50%;
-    height: auto;
-    border-radius: 5%;
-    border: 3px solid #000;
-    max-width: 80%;
-    display: block;
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
-    filter: alpha(opacity=80);
-    opacity: 0.8;
-    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
+  margin: 0 auto;
+  width: 50%;
+  height: auto;
+  border-radius: 5%;
+  border: 3px solid #000;
+  max-width: 80%;
+  display: block;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=80)";
+  filter: alpha(opacity=80);
+  opacity: 0.8;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .mask2 img:hover {
-    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
-    filter: alpha(opacity=99);
-    opacity: 1;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
+  filter: alpha(opacity=99);
+  opacity: 1;
 }
