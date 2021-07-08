@@ -1,9 +1,9 @@
 @font-face {
     font-family: 'NexaBold';
-    src:url('assets/fonts/NexaBold.ttf.woff') format('woff'),
-        url('assets/fonts/NexaBold.ttf.svg#NexaBold') format('svg'),
-        url('assets/fonts/NexaBold.ttf.eot'),
-        url('assets/fonts/NexaBold.ttf.eot?#iefix') format('embedded-opentype'); 
+    src:url('fonts/NexaBold.ttf.woff') format('woff'),
+        url('fonts/NexaBold.ttf.svg#NexaBold') format('svg'),
+        url('fonts/NexaBold.ttf.eot'),
+        url('fonts/NexaBold.ttf.eot?#iefix') format('embedded-opentype'); 
     font-weight: normal;
     font-style: normal;
 }
