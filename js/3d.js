@@ -51,9 +51,9 @@ camera.position.setX(-3);
 renderer.render(scene, camera);
 
 // Mobius
-const count = 1024;
+const count = 500;
 const box = new THREE.BoxGeometry();
-const radius = 5.1;
+const radius = 4.75;
 const strip = new THREE.Object3D();
 scene.add(strip);
 
@@ -68,7 +68,7 @@ for (let i = 0; i < count; i++) {
     color: new THREE.Color(`hsl(${Math.floor(104 + a * 2)}, 100%, 12%)`),
   });
   const mesh = new THREE.Mesh(box, mat);
-  mesh.scale.set(0.06, 0.6, 0.02);
+  mesh.scale.set(0.16, 0.6, 0.02);
   mesh.castShadow = true;
   mesh.receiveShadow = true;
   mesh.rotation.x = a / 2;
@@ -286,7 +286,9 @@ moveCamera();
 // Animation Loop
 
 function animate() {
-  requestAnimationFrame(animate);
+  setTimeout(function () {
+    requestAnimationFrame(animate);
+  }, 1000 / 30);
 
   strip.rotation.y += 0.01;
 
