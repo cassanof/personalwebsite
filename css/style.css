@@ -85,13 +85,12 @@ canvas {
   margin-top: 1em;
   text-align: center;
   text-transform: capitalize;
-  font-size: 24px;
+  font-size: 34px;
 }
 
 .display h3 {
   margin-top: 0.35em;
   text-align: center;
-  color: #aaa;
 }
 
 .display .entry-content {
