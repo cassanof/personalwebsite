@@ -1,3 +1,4 @@
+import "/css/style.css";
 function detectWebGL() {
   // Check for the WebGL rendering context
   if (!!window.WebGLRenderingContext) {
@@ -32,6 +33,10 @@ console.log(`webgl status: ${hasWebGl}`);
 if (hasWebGl == 1) {
   let welcome = document.getElementById("welcome");
   welcome.remove();
+  (async () => {
+    let three = await import("./3d.js");
+    three.startAnimation();
+  })();
 } else {
   let canvas = document.getElementById("bg");
   let main = document.getElementById("main");
