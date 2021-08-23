@@ -1,4 +1,4 @@
-# My personal website made with three.js
+# My personal website made with three.js and Go Fiber
 
 Took inspiration from fireship.io's video
 
