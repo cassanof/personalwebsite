@@ -29,7 +29,7 @@ func main() {
 	defer file.Close()
 
 	app.Use(logger.New(logger.Config{
-		Format: "[${time}] ${status} - ${latency} ${method} ${path} | ${ip} ${referer} - ${reqHeader:User-Agent}\n",
+		Format: "[${time}] ${status} - ${latency} ${method} ${path} | ${ips} ${referer} - ${reqHeader:User-Agent}\n",
 		Output: file,
 	}))
 
