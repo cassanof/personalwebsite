@@ -18,6 +18,14 @@ function startAnimation() {
     1000
   );
 
+  var invisibleGeometry = new THREE.BoxGeometry(0.55, 0.55, 0.6);
+  var invisibleMaterial = new THREE.MeshBasicMaterial({
+    color: 0xffffff,
+    transparent: true,
+    opacity: 0.0,
+    wireframe: true,
+  });
+
   const renderer = new THREE.WebGLRenderer({
     canvas: canvas,
     antialias: true,
@@ -127,6 +135,7 @@ function startAnimation() {
 
   // GitHub logo
   let gitHubLogo;
+  let gitHubLogoHitbox;
   let gitHubLogoLoaded = false;
 
   mtlLoader.load("/models/gitHubLogo/obj.mtl", function (materials) {
@@ -136,19 +145,21 @@ function startAnimation() {
     objLoader.setMaterials(materials);
     objLoader.load("/models/gitHubLogo/tinker.obj", function (obj) {
       gitHubLogo = obj;
-      scene.add(gitHubLogo);
+      gitHubLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
+
+      scene.add(gitHubLogoHitbox);
+      gitHubLogoHitbox.add(gitHubLogo);
 
       gitHubLogo.castShadow = false;
+      gitHubLogoHitbox.castShadow = false;
 
       gitHubLogo.scale.set(0.004, 0.004, 0.004);
 
-      gitHubLogo.position.x = -4.25;
-      gitHubLogo.position.z = -6.5;
-      gitHubLogo.position.y = -0.7;
+      gitHubLogoHitbox.position.set(-4.25, -0.7, -6.5);
 
       gitHubLogo.rotation.x = -0.2;
 
-      gitHubLogo.name = "gitHubLogo";
+      gitHubLogoHitbox.name = "gitHubLogoHitbox";
 
       gitHubLogoLoaded = true;
     });
@@ -156,6 +167,7 @@ function startAnimation() {
 
   // Linkedin logo
   let linkedinLogo;
+  let linkedinLogoHitbox;
   let linkedinLogoLoaded = false;
 
   mtlLoader.load("/models/linkedinLogo/obj.mtl", function (materials) {
@@ -165,19 +177,21 @@ function startAnimation() {
     objLoader.setMaterials(materials);
     objLoader.load("/models/linkedinLogo/tinker.obj", function (obj) {
       linkedinLogo = obj;
-      scene.add(linkedinLogo);
+      linkedinLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
+
+      scene.add(linkedinLogoHitbox);
+      linkedinLogoHitbox.add(linkedinLogo);
 
       linkedinLogo.castShadow = false;
+      linkedinLogoHitbox.castShadow = false;
 
       linkedinLogo.scale.set(0.004, 0.004, 0.004);
 
-      linkedinLogo.position.x = -4.3;
-      linkedinLogo.position.z = -6.5;
-      linkedinLogo.position.y = -1.5;
+      linkedinLogoHitbox.position.set(-4.26, -1.45, -6.5);
 
       linkedinLogo.rotation.x = -0.2;
 
-      linkedinLogo.name = "linkedinLogo";
+      linkedinLogoHitbox.name = "linkedinLogoHitbox";
 
       linkedinLogoLoaded = true;
     });
@@ -185,6 +199,7 @@ function startAnimation() {
 
   // Twitter logo
   let twitterLogo;
+  let twitterLogoHitbox;
   let twitterLogoLoaded = false;
 
   mtlLoader.load("/models/twitterLogo/obj.mtl", function (materials) {
@@ -194,19 +209,21 @@ function startAnimation() {
     objLoader.setMaterials(materials);
     objLoader.load("/models/twitterLogo/tinker.obj", function (obj) {
       twitterLogo = obj;
-      scene.add(twitterLogo);
+      twitterLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
+
+      scene.add(twitterLogoHitbox);
+      twitterLogoHitbox.add(twitterLogo);
 
       twitterLogo.castShadow = false;
+      twitterLogoHitbox.castShadow = false;
 
       twitterLogo.scale.set(0.004, 0.004, 0.004);
 
-      twitterLogo.position.x = -4.3;
-      twitterLogo.position.z = -6.5;
-      twitterLogo.position.y = -2.2;
+      twitterLogoHitbox.position.set(-4.3, -2.2, -6.5);
 
       twitterLogo.rotation.x = -0.2;
 
-      twitterLogo.name = "twitterLogo";
+      twitterLogoHitbox.name = "twitterLogoHitbox";
 
       twitterLogoLoaded = true;
     });
@@ -214,6 +231,7 @@ function startAnimation() {
 
   // Email logo
   let emailLogo;
+  let emailLogoHitbox;
   let emailLogoLoaded = false;
 
   mtlLoader.load("/models/emailLogo/obj.mtl", function (materials) {
@@ -223,19 +241,21 @@ function startAnimation() {
     objLoader.setMaterials(materials);
     objLoader.load("/models/emailLogo/tinker.obj", function (obj) {
       emailLogo = obj;
-      scene.add(emailLogo);
+      emailLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
+
+      scene.add(emailLogoHitbox);
+      emailLogoHitbox.add(emailLogo);
 
       emailLogo.castShadow = false;
+      emailLogoHitbox.castShadow = false;
 
       emailLogo.scale.set(0.005, 0.005, 0.005);
 
-      emailLogo.position.x = -4.35;
-      emailLogo.position.z = -6.5;
-      emailLogo.position.y = -3;
+      emailLogoHitbox.position.set(-4.33, -2.95, -6.5);
 
       emailLogo.rotation.x = -0.2;
 
-      emailLogo.name = "emailLogo";
+      emailLogoHitbox.name = "emailLogoHitbox";
 
       emailLogoLoaded = true;
     });
@@ -243,6 +263,7 @@ function startAnimation() {
 
   // Welcome Text
 
+  /*
   const fontLoader = new THREE.FontLoader();
 
   fontLoader.load("/assets/garoa.json", function (font) {
@@ -263,6 +284,7 @@ function startAnimation() {
 
     mesh.rotation.x = 0.3;
   });
+  */
 
   // Positions
 
@@ -308,22 +330,21 @@ function startAnimation() {
       emailLogoLoaded &&
       t < 600
     ) {
-      var intersects = raycaster.intersectObjects(
-        gitHubLogo.children.concat(
-          linkedinLogo.children,
-          twitterLogo.children,
-          emailLogo.children
-        )
-      );
+      var intersects = raycaster.intersectObjects([
+        twitterLogoHitbox,
+        gitHubLogoHitbox,
+        linkedinLogoHitbox,
+        emailLogoHitbox,
+      ]);
 
       if (intersects.length > 0) {
         if (INTERSECTED != intersects[0].object) {
-          if (INTERSECTED) INTERSECTED.parent.material.opacity = 1;
-          INTERSECTED = intersects[0].object;
-          INTERSECTED.material.opacity = 0;
+          if (INTERSECTED) INTERSECTED.children[0].material.opacity = 1;
+          INTERSECTED = intersects[0].object.children[0];
+          INTERSECTED.children[0].material.opacity = 0;
         }
       } else {
-        if (INTERSECTED) INTERSECTED.material.opacity = 1;
+        if (INTERSECTED) INTERSECTED.children[0].material.opacity = 1;
         INTERSECTED = null;
       }
     }
@@ -339,16 +360,16 @@ function startAnimation() {
   function onMouseClick() {
     if (INTERSECTED) {
       switch (INTERSECTED.parent.name) {
-        case "gitHubLogo":
+        case "gitHubLogoHitbox":
           window.open("https://github.com/elleven11", "_blank");
           break;
-        case "linkedinLogo":
+        case "linkedinLogoHitbox":
           window.open("https://www.linkedin.com/in/federicocassano/", "_blank");
           break;
-        case "twitterLogo":
+        case "twitterLogoHitbox":
           window.open("https://twitter.com/FedericoCassa17", "_blank");
           break;
-        case "emailLogo":
+        case "emailLogoHitbox":
           window.open("mailto:federico.cassano@federco.codes");
           break;
         default:
