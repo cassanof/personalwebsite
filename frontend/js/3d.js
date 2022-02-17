@@ -370,7 +370,7 @@ function startAnimation() {
           window.open("https://twitter.com/FedericoCassa17", "_blank");
           break;
         case "emailLogoHitbox":
-          window.open("mailto:federico.cassano@federco.codes");
+          window.open("mailto:federico.cassano@federico.codes");
           break;
         default:
         // do nuttin
