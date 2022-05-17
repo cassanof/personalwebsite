@@ -361,7 +361,7 @@ function startAnimation() {
     if (INTERSECTED) {
       switch (INTERSECTED.parent.name) {
         case "gitHubLogoHitbox":
-          window.open("https://github.com/elleven11", "_blank");
+          window.open("https://github.com/cassanof", "_blank");
           break;
         case "linkedinLogoHitbox":
           window.open("https://www.linkedin.com/in/federicocassano/", "_blank");
