@@ -39,7 +39,7 @@ func main() {
 	})
 
 	app.Use(compress.New(compress.Config{
-		Level: compress.LevelBestSpeed,
+		Level: compress.LevelBestCompression,
 	}))
 
 	app.Use(recover.New())
