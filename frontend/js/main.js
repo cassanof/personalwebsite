@@ -14,7 +14,7 @@ function detectWebGL() {
           return 1;
         }
       } catch (e) {
-        hasWebGl = 0;
+        webGlStatus = 0;
       }
     }
 
@@ -27,7 +27,7 @@ function detectWebGL() {
 }
 
 // disable welcome msg if webgl is on
-const webGlStatus = detectWebGL();
+let webGlStatus = detectWebGL();
 const hasWebGl = webGlStatus === 1;
 console.log(`webgl status: ${webGlStatus}`);
 
