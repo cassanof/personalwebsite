@@ -297,12 +297,17 @@ function startAnimation() {
   // Scroll Animation
 
   let t;
+  let disableGraphicsSection = document.getElementById(
+    "disable-graphics-section"
+  );
   function moveCamera() {
     t = window.scrollY;
     console.log(t);
     if (t < 700) {
       camera.position.z = 1.5 + ~t * -0.01;
     }
+    // also make the graphics section slowly fade in
+    disableGraphicsSection.style.opacity = 1 - t * 0.001;
   }
 
   document.body.onscroll = moveCamera;

@@ -27,21 +27,37 @@ function detectWebGL() {
 }
 
 // disable welcome msg if webgl is on
-let hasWebGl = detectWebGL();
-console.log(`webgl status: ${hasWebGl}`);
+const webGlStatus = detectWebGL();
+const hasWebGl = webGlStatus === 1;
+console.log(`webgl status: ${webGlStatus}`);
 
-if (hasWebGl == 1) {
+function enableGraphics() {
+  // hide welcome msg
   let welcome = document.getElementById("welcome");
-  welcome.remove();
+  welcome.hidden = true;
   (async () => {
     let three = await import("./3d.js");
     three.startAnimation();
   })();
-} else {
+  // disable secondary background
+  let secondary = document.getElementById("bg-secondary");
+  secondary.hidden = true;
+}
+
+function disableGraphics() {
   let canvas = document.getElementById("bg");
   let main = document.getElementById("main");
-  canvas.remove();
+  canvas.hidden = true;
   main.style.top = 0;
+  // enable secondary background
+  let secondary = document.getElementById("bg-secondary");
+  secondary.hidden = false;
+}
+
+if (hasWebGl) {
+  enableGraphics();
+} else {
+  disableGraphics();
 }
 
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
@@ -70,7 +86,7 @@ const hideScroll = async () => {
 };
 
 let ticking = false;
-document.addEventListener("scroll", function (e) {
+document.addEventListener("scroll", function (_e) {
   if (!ticking) {
     window.requestAnimationFrame(function () {
       hideScroll();
@@ -80,3 +96,16 @@ document.addEventListener("scroll", function (e) {
     ticking = true;
   }
 });
+
+function disableGraphicsButtonClicked() {
+  disableGraphics();
+  // hide section
+  let section = document.getElementById("disable-graphics-section");
+  section.hidden = true;
+  // show welcome
+  let welcome = document.getElementById("welcome");
+  welcome.hidden = false;
+}
+document
+  .getElementById("disable-graphics-button")
+  .addEventListener("click", disableGraphicsButtonClicked);

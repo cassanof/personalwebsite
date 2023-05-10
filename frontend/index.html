@@ -31,7 +31,12 @@
     <script src="https://kit.fontawesome.com/9cdffaf432.js" crossorigin="anonymous"></script>
   </head>
   <body>
+    <script type="module" src="./js/main.js"></script>
     <canvas id="bg"></canvas>
+    <div id="bg-secondary" class="bg-secondary"></div>
+    <div id="disable-graphics-section" class="disable-graphics-section">
+      <button id="disable-graphics-button" class="btn btn-success">Disable 3D</button>
+    </div>
 
     <main id="main">
       <header id="welcome">
@@ -67,6 +72,7 @@
           </ul>
         </p>
       </header>
+
 
 
       <section>
@@ -117,15 +123,15 @@
           <li>
             <div>
               Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell.
-              <b><a href="./assets/npm-data-paper.pdf">A Large Scale Analysis of Semantic Versioning in NPM</a></b>.
-              <i>Preprint</i>
+              <b><a href="https://arxiv.org/abs/2304.00394">A Large Scale Analysis of Semantic Versioning in NPM</a></b>.
+              <i>20th International Conference on Mining Software Repositories (MSR)</i>, 2023
             </div>
           </li>
           <li>
             <div>
               Federico Cassano, John Gouwar, Daniel Nguyen, Sydney Nguyen, Luna Phipps-Costin, Donald Pinckney, Ming-Ho Yee, Yangtian Zi, Carolyn Jane Anderson, Molly Q Feldman, Arjun Guha, Michael Greenberg, Abhinav Jangda
-              <b><a href="https://arxiv.org/abs/2208.08227">MultiPL-E: A Scalable and Extensible Approach to Benchmarking Neural Code Generation</a></b>.
-              <i>Preprint</i>
+              <b><a href="https://arxiv.org/abs/2208.08227">A Scalable and Extensible Approach to Benchmarking NL2Code for 18 Programming Languages</a></b>.
+              <i>Accepted at IEEE Transactions on Software Engineering</i>
             </div>
           </li>
         </ul>
@@ -149,7 +155,7 @@
                     <div class="inside">
                         <h3>OpenTau AI Type-Inference</h3>
                         <div class="entry-content">
-                            <p>OpenTau is a system that uses OpenAI Codex's "davinci-edit" model for Gradual Type Inference. Implemented Type-Inference for TypeScript and Python. The client is written in Rust.</p>
+                            <p>OpenTau is a system that uses finetuned large language models for Gradual Type Inference. Implemented Type-Inference for TypeScript and Python using a structured program decomposition algorithm. The client is written in Rust.</p>
                         </div>
                     </div>
                 </div>
@@ -307,6 +313,17 @@
             <div class="row">
                 <div class="col-sm-12 col-md-6 col-lg-4 box">
                     <div class="mask2">
+                        <a href="https://www.nationalccdc.org/" target="_blank"><img src="assets/ccdc.jpg" alt="cyberforce-logo"></a>
+                    </div>
+                    <div class="inside">
+                        <h3>Collegiate Cyber Defense Competition 2023</h3>
+                        <div class="entry-content">
+                          <p>Partecipated in the 2023 Collegiate Cyber Defense Competition as a Blue Team member, where our team placed 1st in the Northeast Region.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 box">
+                    <div class="mask2">
                         <a href="https://cyberforce.energy.gov/" target="_blank"><img src="assets/cyberforce_logo.jpg" alt="cyberforce-logo"></a>
                     </div>
                     <div class="inside">
@@ -433,6 +450,5 @@
     </main>
     <div class="scrollers" style="bottom: 25px;"></div>
     <div class="scrollers" style="bottom: 40px;"></div>
-    <script type="module" src="./js/main.js"></script>
   </body>
 </html>

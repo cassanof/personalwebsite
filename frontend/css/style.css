@@ -1,11 +1,11 @@
 @font-face {
-    font-family: 'NexaBold';
-    src:url('fonts/NexaBold.ttf.woff') format('woff'),
-        url('fonts/NexaBold.ttf.svg#NexaBold') format('svg'),
-        url('fonts/NexaBold.ttf.eot'),
-        url('fonts/NexaBold.ttf.eot?#iefix') format('embedded-opentype'); 
-    font-weight: normal;
-    font-style: normal;
+  font-family: "NexaBold";
+  src: url("fonts/NexaBold.ttf.woff") format("woff"),
+    url("fonts/NexaBold.ttf.svg#NexaBold") format("svg"),
+    url("fonts/NexaBold.ttf.eot"),
+    url("fonts/NexaBold.ttf.eot?#iefix") format("embedded-opentype");
+  font-weight: normal;
+  font-style: normal;
 }
 
 * {
@@ -169,7 +169,7 @@ blockquote {
     opacity: 0.7;
   }
   50% {
-    transform: translate(-50%, 0%)  rotate(45deg);
+    transform: translate(-50%, 0%) rotate(45deg);
     opacity: 0.2;
   }
   100% {
@@ -260,4 +260,21 @@ footer {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
   filter: alpha(opacity=99);
   opacity: 1;
+}
+
+.disable-graphics-section {
+  position: fixed;
+  z-index: 1;
+  padding: 20px
+}
+
+.bg-secondary {
+  position: fixed;
+  min-width: 100%;
+  min-height: 100%;
+  background-image: url("/assets/bg.jpg");
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
