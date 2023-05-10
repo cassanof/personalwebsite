@@ -52,6 +52,9 @@ function disableGraphics() {
   // enable secondary background
   let secondary = document.getElementById("bg-secondary");
   secondary.hidden = false;
+  // hide section with disable graphics button
+  let section = document.getElementById("disable-graphics-section");
+  section.hidden = true;
 }
 
 if (hasWebGl) {
@@ -99,9 +102,6 @@ document.addEventListener("scroll", function (_e) {
 
 function disableGraphicsButtonClicked() {
   disableGraphics();
-  // hide section
-  let section = document.getElementById("disable-graphics-section");
-  section.hidden = true;
   // show welcome
   let welcome = document.getElementById("welcome");
   welcome.hidden = false;
