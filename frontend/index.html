@@ -156,12 +156,8 @@
             year='2023'
           }}
         </ul>
-
       </section>
-
-
       <section class="display">
-
             <div class="row">
                 <div class="col-sm-12">
                     <div class="align"><i class="fa fa-desktop"></i></div>
@@ -169,251 +165,124 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/GammaTauAI/opentau" target="_blank"><img src="assets/gammatau.jpg" alt="GammaTau logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>OpenTau AI Type-Inference</h3>
-                        <div class="entry-content">
-                            <p>OpenTau is a system that uses finetuned large language models for Gradual Type Inference. Implemented Type-Inference for TypeScript and Python using a structured program decomposition algorithm. The client is written in Rust.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/cassanof/stiletto" target="_blank"><img src="assets/stiletto.png" alt="Stiletto logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Stiletto Compiler</h3>
-                        <div class="entry-content">
-                            <p>Stiletto is a compiler for a multi-paradigm (functionally focused) language. It features type-inferred structs,
-                            first-class functions and methods, tuples, garbage collection and more.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/cassanof/pantegana" target="_blank"><img src="assets/pante.jpg" alt="Pantegana logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Pantegana Botnet</h3>
-                        <div class="entry-content">
-                            <p>Pantegana is a HTTPS Botnet written in Go. It can be used to test anti-malware software and IPS/IDS. Currently, 
-                            Pantegana is not being detected by major anti-virus software like Kaspersky and Malware-Bytes.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://federico.codes/searx/" target="_blank"><img src="assets/searx-logo.jpeg" alt="Searx logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Searx encrypted search engine</h3>
-                        <div class="entry-content">
-                            <p>I modified Searx, which is a open-source search engine that combines all popular search results from google, duckduckgo, bing, etc... I made so that every search
-                                and image lookup goes through a Morty encrypted socket and queries are proxied with filtron to ensure confidentiality and integrity (as long as you trust me).</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/cassanof/inventory_app_public" target="_blank"><img src="assets/inventory_app_icon.jpg" alt="Inventory App logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Mobile Inventory App</h3>
-                        <div class="entry-content">
-                            <p>A cross-platform inventory application written in Flutter.
-                                It utilizes Firebase as it's backend as well as it's own API for pictures of items.
-                                It features QR Codes, Item Borrowing and personal database creation.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/cassanof/dotfiles" target="_blank"><img src="assets/archlogo.jpeg" alt="archlinux logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Arch based OS</h3>
-                        <div class="entry-content">
-                            <p>My Archlinux-based operating system that i use daily, i use XFCE as my desktop environment and dwm as my window manager.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://github.com/cassanof/patient_api" target="_blank"><img src="assets/teddy.jpg" alt="teddy logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Teddy for Cancer Patients</h3>
-                        <div class="entry-content">
-                            <p>Teddy is an API written in Go that predicts the probability of being diagnosed with cancer by using natural language processing and machine learning.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
+                {{> project
+                  title='OpenTau AI Type-Inference'
+                  description='OpenTau is a system that uses finetuned large language models for Gradual Type Inference. Implemented Type-Inference for TypeScript and Python using a structured program decomposition algorithm. The client is written in Rust.'
+                  url='https://https://github.com/GammaTauAI/opentau'
+                  img='assets/gammatau.jpg'
+                }}
+                {{> project
+                  title='Stiletto Compiler'
+                  description='Stiletto is a compiler for a multi-paradigm (functionally focused) language. It features type-inferred structs, first-class functions and methods, tuples, garbage collection and more.'
+                  url='https://github.com/cassanof/stiletto'
+                  img='assets/stiletto.png'
+                }}
+                {{> project
+                  title='Pantegana Botnet'
+                  description='Pantegana is a HTTPS Botnet written in Go. It can be used to test anti-malware software and IPS/IDS. Currently, Pantegana is not being detected by major anti-virus software like Kaspersky and Malware-Bytes.'
+                  url='https://github.com/cassanof/pantegana'
+                  img='assets/pante.jpg'
+                }}
+                {{> project
+                  title='Searx encrypted search engine'
+                  description='I modified Searx, which is a open-source search engine that combines all popular search results from google, duckduckgo, bing, etc... I made so that every search and image lookup goes through a Morty encrypted socket and queries are proxied with filtron to ensure confidentiality and integrity (as long as you trust me).'
+                  url='https://federico.codes/searx/'
+                  img='assets/searx-logo.jpeg'
+                }}
+                {{> project
+                  title='Mobile Inventory App'
+                  description="A cross-platform inventory application written in Flutter. It utilizes Firebase as it's backend as well as it's own API for pictures of items. It features QR Codes, Item Borrowing and personal database creation."
+                  url='https://github.com/cassanof/inventory_app_public'
+                  img='assets/inventory_app_icon.jpg'
+                }}
+                {{> project
+                  title='Arch based OS'
+                  description='My Archlinux-based operating system that i use daily, i use XFCE as my desktop environment and dwm as my window manager.'
+                  url='https://github.com/cassanof/dotfiles'
+                  img='assets/archlogo.jpeg'
+                }}
+                {{> project
+                  title='Teddy for Cancer Patients'
+                  description='Teddy is an API written in Go that predicts the probability of being diagnosed with cancer by using natural language processing and machine learning.'
+                  url='https://github.com/cassanof/patient_api'
+                  img='assets/teddy.jpg'
+                }}
             </div>
-                    <div class="row">
-          <div class="col-sm-12">
-            <div class="align"><i class="fa fa-file-text"></i></div>
-              <h2 id="folio-headline">Certifications</h2>
-            </div>
-          </div>
           <div class="row">
-          <div class="col-sm-12 col-md-6 col-lg-4 box">
-              <div class="mask2">
-                  <a href="https://www.credly.com/badges/f8defda8-41e3-4c99-8ad2-725bcc9bc011/public_url" target="_blank"><img src="assets/GFACT.jpg" alt="GFACT badge"></a>
+            <div class="col-sm-12">
+              <div class="align"><i class="fa fa-file-text"></i></div>
+                <h2 id="folio-headline">Certifications</h2>
               </div>
-              <div class="inside">
-                  <h3>GIAC GFACT</h3>
-                  <div class="entry-content">
-                      <p>
-                      <b>GIAC Foundational Cybersecurity Technologies</b>
-                      </p>
-                  </div>
-              </div>
-          </div>
-      <!-- container end -->
-
-          <div class="col-sm-12 col-md-6 col-lg-4 box">
-              <div class="mask2">
-                  <a href="https://aspen.eccouncil.org/VerifyBadge?type=certification&a=RfdnCZsh5BG0ysOMwy27lTqIUIaZE71TVxGB1qZcreo=" target="_blank"><img src="assets/CEH-Badge.jpg" alt="CEH Badge"></a>
-              </div>
-              <div class="inside">
-                  <h3>CEH v11</h3>
-                  <div class="entry-content">
-                      <p>
-                      <b>EC-Council Certified Ethical Hacker v11 - Ethical Hacking Methodologies and Countermeasures</b>
-                      </p>
-                  </div>
-              </div>
-          </div>
-      <!-- container end -->
-          <!-- col end -->
-          <div class="col-sm-12 col-md-6 col-lg-4 box">
-              <div class="mask2">
-                  <a href="https://courses.edx.org/certificates/a3b2318f099c4a0aa303f4dbf5515aaa" target="_blank"><img src="https://courses.edx.org/asset-v1:MITx+6.00.2x+1T2020+type@thumbnail+block@course_image-375x200.jpg" alt="MIT logo2x"></a>
-              </div>
-              <div class="inside">
-                  <h3>MITx - 6.00.2x</h3>
-                  <div class="entry-content">
-                      <p>
-                      <b>Introduction to Computational Thinking and Data Science</b>
-                      </p>
-                  </div>
-              </div>
-          </div>
+            </div>
+          <div class="row">
+          {{> cert
+            long='GIAC Foundational Cybersecurity Technologies'
+            short='GIAC GFACT'
+            img='assets/GFACT.jpg'
+            url='https://www.credly.com/badges/f8defda8-41e3-4c99-8ad2-725bcc9bc011/public_url'
+          }}
+          {{> cert
+            long='EC-Council Certified Ethical Hacker v11 - Ethical Hacking Methodologies and Countermeasures'
+            short='CEH v11'
+            img='assets/CEH-Badge.jpg'
+            url='https://aspen.eccouncil.org/VerifyBadge?type=certification&a=RfdnCZsh5BG0ysOMwy27lTqIUIaZE71TVxGB1qZcreo='
+          }}
+        {{> cert
+          long='Introduction to Computational Thinking and Data Science'
+          short='MITx - 6.00.2x'
+          img='https://courses.edx.org/asset-v1:MITx+6.00.2x+1T2020+type@thumbnail+block@course_image-375x200.jpg'
+          url='https://courses.edx.org/certificates/a3b2318f099c4a0aa303f4dbf5515aaa'
+        }}
+        {{> cert
+          long='Introduction to Computer Science and Programming Using Python'
+          short='MITx - 6.00.1x'
+          img='https://courses.edx.org/asset-v1:MITx+6.00.1x+1T2020+type@thumbnail+block@course_image-375x200.jpg'
+          url='https://courses.edx.org/certificates/ea0ad8ead4034b6a8e84ceb22de1226f'
+        }}
         </div>
-        <div class="col-sm-12 col-md-6 col-lg-4 box">
-              <div class="mask2">
-                  <a href="https://courses.edx.org/certificates/ea0ad8ead4034b6a8e84ceb22de1226f" target="_blank"><img src="https://courses.edx.org/asset-v1:MITx+6.00.1x+1T2020+type@thumbnail+block@course_image-375x200.jpg" alt="MIT logo1x"></a>
-              </div>
-              <div class="inside">
-                  <h3>MITx - 6.00.1x</h3>
-                  <div class="entry-content">
-                      <p>
-                      <b>Introduction to Computer Science and Programming Using Python</b><br />
-                      </p>
-                  </div>
-              </div>
-          </div>
-      <!-- container end -->
-          <!-- col end -->
-
-                        <div class="row">
+          <div class="row">
                 <div class="col-sm-12">
                     <div class="align"><i class="fas fa-trophy"></i></div>
                     <h2 id="folio-headline">Hackathons and CTFs</h2>
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://www.nationalccdc.org/" target="_blank"><img src="assets/ccdc.jpg" alt="cyberforce-logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>Collegiate Cyber Defense Competition 2023</h3>
-                        <div class="entry-content">
-                          <p>Partecipated in the 2023 Collegiate Cyber Defense Competition as a Blue Team member, where our team placed 1st in the Northeast Region.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://cyberforce.energy.gov/" target="_blank"><img src="assets/cyberforce_logo.jpg" alt="cyberforce-logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>CyberForce 2022 Red Teamer</h3>
-                        <div class="entry-content">
-                          <p>Volunteered as a Red Teamer for CyberForce 2022, where I played as against Blue Team partecipants by hacking into their defences.</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://www.nationalcyberscholarship.org/" target="_blank"><img src="assets/ncs.jpg" alt="ncs-logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>National Cyber Scholarship Competition Spring 2021</h3>
-                        <div class="entry-content">
-                          <p>Placed as a <a class="link-secondary" href="https://badgr.com/public/assertions/ij2tRNrJRmaU9OwGw4Cc3Q" target="_blank">Finalist</a> 
-                          and <a class="link-secondary" href="https://badgr.com/public/assertions/MIapfGcQTVOs8OkrMrJdzA" target="_blank">Scholar</a>.
-                          I was awarded the scholarship amount of $2500, access
-                          to the SANS Cyber Foundations course and the GFACT certification.
-                          </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://nationalcyberleague.org/" target="_blank"><img src="assets/ncl.jpg" alt="ncl logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>National Cyber League Spring 2021</h3>
-                        <div class="entry-content">
-                            <p>Placed 28th out of 4180 
-                            in the Individual game and placed 16th out of 922
-                            in the Team game.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://www.uscyberpatriot.org/" target="_blank"><img src="assets/cyberpatriot.jpg" alt="cyberpatriot-logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>CyberPatriot XIII</h3>
-                        <div class="entry-content">
-                            <p>My team placed Platinum and won all of the rounds before the national finals. I personally worked on
-                              the Linux boxes. <a class="link-secondary" href="https://github.com/cassanof/cyberpatriot" target="_blank">The scripts and checklists i used can be found here</a>.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
-                <div class="col-sm-12 col-md-6 col-lg-4 box">
-                    <div class="mask2">
-                        <a href="https://devpost.com/software/teddy-f246gj" target="_blank"><img src="assets/hudsonalpha.jpg" alt="teddy logo"></a>
-                    </div>
-                    <div class="inside">
-                        <h3>HudsonAlpha Virtual Tech Challenge 2021</h3>
-                        <div class="entry-content">
-                          <p>My team won in first place by building an application that predicts cancer diagnosis using Machine Learning.
-                            We were awarded $1000 and HudsonAlpha gadgets.
-                          </p>
-                        </div>
-                    </div>
-                </div>
-                <!-- col end -->
+                {{> ctf
+                  title='Collegiate Cyber Defense Competition 2023'
+                  description='Partecipated in the 2023 Collegiate Cyber Defense Competition as a Blue Team member, where our team placed 1st in the Northeast Region and 5th at Nationals.'
+                  url='https://www.nationalcptc.org/'
+                  img='assets/ccdc.jpg'
+                }}
+                {{> ctf
+                  title='CyberForce 2022 Red Teamer'
+                  description='Volunteered as a Red Teamer for CyberForce 2022, where I played as against Blue Team partecipants by hacking into their defences.'
+                  url='https://cyberforce.energy.gov/'
+                  img='assets/cyberforce_logo.jpg'
+                }}
+                {{> ctf
+                  title='National Cyber Scholarship Competition Spring 2021'
+                  description='Placed as a Finalist and Scholar. I was awarded the scholarship amount of $2500, access to the SANS Cyber Foundations course and the GFACT certification.'
+                  url='https://www.nationalcyberscholarship.org/'
+                  img='assets/ncs.jpg'
+                }}
+                {{> ctf
+                  title='National Cyber League Spring 2021'
+                  description='Placed 28th out of 4180 in the Individual game and placed 16th out of 922 in the Team game.'
+                  url='https://nationalcyberleague.org/'
+                  img='assets/ncl.jpg'
+                }}
+                {{> ctf
+                  title='CyberPatriot XIII'
+                  description='My team placed Platinum and won all of the rounds before the national finals. I personally worked on the Linux boxes.'
+                  url='https://www.uscyberpatriot.org/'
+                  img='assets/cyberpatriot.jpg'
+                }}
+                {{> ctf
+                  title='HudsonAlpha Virtual Tech Challenge 2021'
+                  description='My team won in first place by building an application that predicts cancer diagnosis using Machine Learning. We were awarded $1000 and HudsonAlpha gadgets.'
+                  url='https://devpost.com/software/teddy-f246gj'
+                  img='assets/hudsonalpha.jpg'
+                }}
             </div>
 
 
