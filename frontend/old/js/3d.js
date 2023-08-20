@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { MTLLoaderG } from "/js/MTLLoader.js";
+import { MTLLoaderG } from "./MTLLoader.js";
 import { OBJLoader } from "three/examples/jsm/loaders/OBJLoader";
 export { phoneLoaded, startAnimation };
 
@@ -110,12 +110,12 @@ function startAnimation() {
   let phone;
 
   const mtlLoader = new MTLLoaderG();
-  mtlLoader.load("/models/phoneModel/phoneModel.mtl", function (materials) {
+  mtlLoader.load("models/phoneModel/phoneModel.mtl", function (materials) {
     materials.preload();
 
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("/models/phoneModel/phoneModel.obj", function (obj) {
+    objLoader.load("models/phoneModel/phoneModel.obj", function (obj) {
       scene.add(obj);
       phone = obj;
 
@@ -138,12 +138,12 @@ function startAnimation() {
   let gitHubLogoHitbox;
   let gitHubLogoLoaded = false;
 
-  mtlLoader.load("/models/gitHubLogo/obj.mtl", function (materials) {
+  mtlLoader.load("models/gitHubLogo/obj.mtl", function (materials) {
     materials.preload();
 
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("/models/gitHubLogo/tinker.obj", function (obj) {
+    objLoader.load("models/gitHubLogo/tinker.obj", function (obj) {
       gitHubLogo = obj;
       gitHubLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
 
@@ -170,12 +170,12 @@ function startAnimation() {
   let linkedinLogoHitbox;
   let linkedinLogoLoaded = false;
 
-  mtlLoader.load("/models/linkedinLogo/obj.mtl", function (materials) {
+  mtlLoader.load("models/linkedinLogo/obj.mtl", function (materials) {
     materials.preload();
 
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("/models/linkedinLogo/tinker.obj", function (obj) {
+    objLoader.load("models/linkedinLogo/tinker.obj", function (obj) {
       linkedinLogo = obj;
       linkedinLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
 
@@ -202,12 +202,12 @@ function startAnimation() {
   let twitterLogoHitbox;
   let twitterLogoLoaded = false;
 
-  mtlLoader.load("/models/twitterLogo/obj.mtl", function (materials) {
+  mtlLoader.load("models/twitterLogo/obj.mtl", function (materials) {
     materials.preload();
 
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("/models/twitterLogo/tinker.obj", function (obj) {
+    objLoader.load("models/twitterLogo/tinker.obj", function (obj) {
       twitterLogo = obj;
       twitterLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
 
@@ -234,12 +234,12 @@ function startAnimation() {
   let emailLogoHitbox;
   let emailLogoLoaded = false;
 
-  mtlLoader.load("/models/emailLogo/obj.mtl", function (materials) {
+  mtlLoader.load("models/emailLogo/obj.mtl", function (materials) {
     materials.preload();
 
     const objLoader = new OBJLoader();
     objLoader.setMaterials(materials);
-    objLoader.load("/models/emailLogo/tinker.obj", function (obj) {
+    objLoader.load("models/emailLogo/tinker.obj", function (obj) {
       emailLogo = obj;
       emailLogoHitbox = new THREE.Mesh(invisibleGeometry, invisibleMaterial);
 

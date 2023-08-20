@@ -1,4 +1,4 @@
-import "/css/style.css";
+import "/css/old_style.css";
 function detectWebGL() {
   // Check for the WebGL rendering context
   if (!!window.WebGLRenderingContext) {
