@@ -207,10 +207,20 @@ section {
 }
 
 .chess {
-  padding-top: 2em;
   padding-left: 1em;
   grid-column: 8 / span 8;
   grid-row: 1 / 2;
+}
+
+.chess-status {
+  transform: translate(-25%, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: #84a463;
+  font-weight: bold;
+  text-shadow: 0 0 10px #000;
 }
 
 /* If on mobile, full width */
