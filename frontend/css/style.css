@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 
 * {
   scrollbar-width: thin;
@@ -14,7 +14,7 @@
 }
 
 *::-webkit-scrollbar-thumb {
-  background-color: rgb(132,164,99);
+  background-color: rgb(132, 164, 99);
   border-radius: 20px;
   border: 3px solid rgba(24, 24, 24, 1);
 }
@@ -29,7 +29,7 @@ canvas {
   --dark-bg: rgba(15, 15, 15, 0.95);
   --spacing: 200px;
 
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
 }
@@ -59,7 +59,7 @@ canvas {
 
 .display .entry-content {
   margin: 1em 0 2.5em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   text-align: center;
 }
@@ -88,7 +88,7 @@ canvas {
 
 .display .entry-content {
   margin: 1em 0 2.5em;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-size: 20px;
   text-align: center;
 }
@@ -129,7 +129,7 @@ h1,
 h2,
 h3,
 blockquote {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 700;
   font-style: normal;
 }
@@ -180,7 +180,7 @@ small {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: var(--dark-bg);
   overflow-x: hidden;
 }
@@ -202,9 +202,23 @@ section {
   margin-bottom: var(--spacing);
 }
 
-
 .aboutme {
   grid-column: 6 / span 6;
+}
+
+/* If on mobile, full width */
+@media screen and (max-width: 600px) {
+  header {
+    grid-column: 1 / span 12;
+  }
+
+  section {
+    grid-column: 1 / span 12;
+  }
+
+  .aboutme {
+    grid-column: 1 / span 12;
+  }
 }
 
 .faccia {
