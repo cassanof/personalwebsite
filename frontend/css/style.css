@@ -207,6 +207,25 @@ section {
   margin-bottom: var(--spacing);
 }
 
+
+.aboutme {
+  grid-column: 6 / span 6;
+}
+
+.faccia {
+  width: 30%;
+  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 50%;
+  border: 3px solid #84a463;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2em;
+  margin-top: 0em;
+}
+
 blockquote {
   margin: 0;
   padding: 0;
@@ -253,12 +272,6 @@ footer {
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=99)";
   filter: alpha(opacity=99);
   opacity: 1;
-}
-
-.disable-graphics-section {
-  position: fixed;
-  z-index: 1;
-  padding: 20px;
 }
 
 .bg-secondary {
