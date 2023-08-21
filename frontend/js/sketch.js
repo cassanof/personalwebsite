@@ -10,11 +10,12 @@
 let currWidth = window.innerWidth;
 let currHeight = window.innerHeight;
 
-// path to sprite: /assets/spritesheet.png
-let spritesheet;
-function preload() {
+import { sketch } from "p5js-wrapper";
+
+let spritesheet; // path to sprite: /assets/spritesheet.png
+sketch.preload = () => {
   spritesheet = loadImage("assets/spritesheet.png");
-}
+};
 
 const PAWN = 0;
 const ROOK = 1;
@@ -522,32 +523,6 @@ function resizeBgIfNeeded() {
   }
 }
 
-function setup() {
-  let canvas = createCanvas(currWidth / 5, currWidth / 5);
-  const chess = document.getElementById("chess");
-  canvas.parent("chess");
-
-  // add text to chess
-  let message = document.createElement("div");
-  message.id = "chess-status";
-  const link =
-    "https://github.com/cassanof/personalwebsite/blob/b898a462ed00133728cb4d67632171ed00973189/frontend/js/sketch.js#L1";
-  message.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
-  // center text horizontally
-  message.style.transform = "translateX(15%)";
-
-  chess.appendChild(message);
-
-  // border around canvas
-  canvas.style("border", "5px solid #84a463");
-  // make it relative to the parent
-  canvas.style("position", "relative");
-
-  noStroke();
-  initGame();
-  drawBoard();
-}
-
 function drawBoard() {
   changeStatus(`<font style='opacity: 0;'>.</font>`);
   clear();
@@ -599,7 +574,33 @@ function gameEnd(stat) {
   initGame();
 }
 
-function draw() {
+sketch.setup = () => {
+  let canvas = createCanvas(currWidth / 5, currWidth / 5);
+  const chess = document.getElementById("chess");
+  canvas.parent("chess");
+
+  // add text to chess
+  let message = document.createElement("div");
+  message.id = "chess-status";
+  const link =
+    "https://github.com/cassanof/personalwebsite/blob/b898a462ed00133728cb4d67632171ed00973189/frontend/js/sketch.js#L1";
+  message.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
+  // center text horizontally
+  message.style.transform = "translateX(15%)";
+
+  chess.appendChild(message);
+
+  // border around canvas
+  canvas.style("border", "5px solid #84a463");
+  // make it relative to the parent
+  canvas.style("position", "relative");
+
+  noStroke();
+  initGame();
+  drawBoard();
+};
+
+sketch.draw = () => {
   frameRate(5);
   resizeBgIfNeeded();
   drawBoard();
@@ -642,4 +643,4 @@ function draw() {
   addToBoardWindow(clonedBoard);
   switchTurn();
   turns++;
-}
+};
