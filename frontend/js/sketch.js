@@ -530,7 +530,9 @@ function setup() {
   // add text to chess
   let message = document.createElement("div");
   message.id = "chess-status";
-  message.innerHTML = `<a href="todo" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
+  const link =
+    "https://github.com/cassanof/personalwebsite/blob/b898a462ed00133728cb4d67632171ed00973189/frontend/js/sketch.js#L1";
+  message.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
   // center text horizontally
   message.style.transform = "translateX(15%)";
 
