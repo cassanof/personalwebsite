@@ -1,3 +1,5 @@
+import "/css/style.css";
+
 function boldName() {
   let pubs = document.getElementById("pubs");
   for (let i = 0; i < pubs.children.length; i++) {
