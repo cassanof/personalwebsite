@@ -236,6 +236,15 @@ section {
   .aboutme {
     grid-column: 1 / span 12;
   }
+
+  .chess {
+    grid-column: 6 / 6;
+    padding-bottom: 2em;
+  }
+
+  .chess-status {
+    transform: translate(-20%, -50%);
+  }
 }
 
 .faccia {

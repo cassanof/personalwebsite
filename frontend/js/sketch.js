@@ -516,10 +516,16 @@ function randomMove(color) {
 }
 
 function resizeBgIfNeeded() {
+  // if on mobile, make the ratio larger
+  if (window.innerWidth < 600) {
+    widthRatio = 2;
+  } else {
+    widthRatio = 5;
+  }
   if (currWidth != window.innerWidth || currHeight != window.innerHeight) {
     currWidth = window.innerWidth;
     currHeight = window.innerHeight;
-    resizeCanvas(currWidth / 5, currWidth / 5);
+    resizeCanvas(currWidth / widthRatio, currWidth / widthRatio);
   }
 }
 
@@ -574,19 +580,26 @@ function gameEnd(stat) {
   initGame();
 }
 
+let widthRatio = 5;
+
 sketch.setup = () => {
-  let canvas = createCanvas(currWidth / 5, currWidth / 5);
+  // if on mobile, make the ratio larger
+  if (window.innerWidth < 600) {
+    widthRatio = 2;
+  }
+  let canvas = createCanvas(currWidth / widthRatio, currWidth / widthRatio);
   const chess = document.getElementById("chess");
   canvas.parent("chess");
 
   // add text to chess
   let message = document.createElement("div");
-  message.id = "chess-status";
+  message.id = "chess-msg";
+  message.className = "chess-msg";
   const link =
     "https://github.com/cassanof/personalwebsite/blob/b898a462ed00133728cb4d67632171ed00973189/frontend/js/sketch.js#L1";
   message.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
   // center text horizontally
-  message.style.transform = "translateX(15%)";
+  // message.style.transform = "translateX(15%)";
 
   chess.appendChild(message);
 
