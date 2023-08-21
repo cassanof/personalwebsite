@@ -18,6 +18,7 @@
   border-radius: 20px;
   border: 3px solid rgba(24, 24, 24, 1);
 }
+
 canvas {
   position: fixed;
   top: 0;
@@ -176,12 +177,6 @@ blockquote {
 
 small {
   font-size: 20px;
-}
-
-canvas {
-  position: fixed;
-  top: 0;
-  left: 0;
 }
 
 body {
