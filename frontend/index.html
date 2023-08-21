@@ -1,1 +1,160 @@
-nuked
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- Primary Meta Tags -->
+    <title>Federico Cassano - CS Researcher</title>
+    <meta name="title" content="Federico Cassano - Research Portfolio">
+    <meta name="description" content="Undegraduate ">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://federico.codes/">
+    <meta property="og:title" content="Federico Cassano - Research Portfolio">
+    <meta property="og:description" content="Undegraduate researcher at Northeastern University with interests in neural code generation, programming languages, and security.">
+    <meta property="og:image" content="assets/omega-bg-centered.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://federico.codes/">
+    <meta property="twitter:title" content="Federico Cassano - Research Portfolio">
+    <meta property="twitter:description" content="Undegraduate researcher at Northeastern University with interests in neural code generation, programming languages, and security.">
+    <meta property="twitter:image" content="assets/omega-bg-centered.jpg">
+
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
+    <link rel="manifest" href="assets/favicons/site.webmanifest">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/9cdffaf432.js" crossorigin="anonymous"></script>
+  </head>
+  <link rel="stylesheet" href="css/style.css" />
+  <body>
+    <script type="module" src="./js/main.js"></script>
+    <div id="bg-secondary" class="bg-secondary"></div>
+    <main id="main">
+
+      <header id="welcome">
+        <h1>Federico Cassano</h1>
+        <p>
+          Undegraduate Researcher<br />
+          <small>
+            at Northeastern University with interests in 
+            <font color="#fb6a16">neural code generation</font>,
+            <font color="#81d8d0">programming languages</font>, and
+            <font color="#9f83a9">security</font>.
+          </small>
+          <ul class="icon">
+            <li>
+              <a href="https://scholar.google.com/citations?user=n8tK15oAAAAJ" target="_blank"
+                ><img src="assets/icons/scholar.png" alt="Google Scholar"
+              /></a>
+            </li>
+            <li>
+              <a href="https://github.com/cassanof" target="_blank"
+                ><img src="assets/icons/github.png" alt="GitHub"
+              /></a>
+            </li>
+            <li>
+              <a href="https://twitter.com/ellev3n11" target="_blank"
+                ><img src="assets/icons/twitter.png" alt="Twitter"
+              /></a>
+            </li>
+            <li>
+              <a href="https://www.linkedin.com/in/federicocassano/" target="_blank"
+                ><img src="assets/icons/linkedin.png" alt="linkedin"
+              /></a>
+            </li>
+          </ul>
+        </p>
+      </header>
+
+
+
+      <section>
+        <h2 class="pb-4">About <font color="#84a463">Me</font></h2>
+        <article>
+        <p>
+        Ciao! I'm <font color="#84a463">Federico</font>, an undergraduate researcher from the vibrant city of Milan, Italy,
+          currently furthering my academic journey at Northeastern University.
+          My fascination with computer science began in the playful realms of childhood,
+          where at the tender age of 8, I began experimenting with simple coding challenges,
+          sparking a lifelong commitment to bits and bytes.
+          Over the years, my enthusiasm has found its niche at the intersections of code generation, 
+          programming languages, and security.
+        </p>
+
+        <p>
+        I am proud to contribute to the research community under the guidance of 
+        <a href="https://khoury.northeastern.edu/~arjunguha/main/home/" 
+           class="link-offset-2 link-underline-success"><font color="#84a463">Prof. Arjun Guha</font></a>
+          at the Northeastern University Programming Research Lab (NUPRL).
+          Being an undergraduate hasn't limited my endeavors; I've had the privilege of publishing
+          in several esteemed research venues and collaborating with leading experts in the field.
+          These achievements stand as a testament to both my unwavering commitment and the 
+          supportive environment at NUPRL.
+        </p>
+
+        <p>
+          Outside the university, I've been fortunate to further hone my skills and insights
+          as a research intern at pioneering companies such as Roblox and Trail of Bits.
+          Through these experiences, I aim to blend academic rigor with real-world applications,
+          consistently pushing the boundaries of what's possible in computer science.
+        </p>
+        </article>
+      </section>
+      <section>
+        <h2 id="folio-headline"><font color="#f25e52">Academic</font> Work</h2>
+        <ul class="pb-4" id="pubs">
+          {{> publication 
+            authors='Federico Cassano, Ming-Ho Yee, Noah Shinn, Arjun Guha, Steven Holtzen'
+            title='Type Prediction With Program Decomposition and Fill-in-the-Type Training'
+            url='https://arxiv.org/abs/2305.17145'
+            journal='arXiv preprint arXiv:2305.17145'
+            year='2023'
+          }}
+          {{> publication 
+            authors='Noah Shinn, Federico Cassano, Beck Labash, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao'
+            title='Reflexion: Language Agents with Verbal Reinforcement Learning'
+            url='https://arxiv.org/abs/2303.11366'
+            journal='arXiv preprint arXiv:2303.11366'
+            year='2023'
+          }}
+          {{> publication 
+            authors='Federico Cassano, Charles Bershatsky, Jacob Ginesin'
+            title='SafeLLVM: LLVM Without The ROP Gadgets!'
+            url='https://arxiv.org/abs/2305.06092'
+            journal='arXiv preprint arXiv:2305.06092'
+            year='2023'
+          }}
+          {{> publication 
+            authors='Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell, Massimiliano Culpo, Todd Gamblin'
+            title='Flexible and Optimal Dependency Management via Max-SMT'
+            url='https://arxiv.org/abs/2203.13737'
+            journal='IEEE/ACM International Conference on Software Engineering (ICSE)'
+            year='2023'
+          }}
+          {{> publication 
+            authors='Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell'
+            title='A Large Scale Analysis of Semantic Versioning in NPM'
+            url='https://arxiv.org/abs/2304.00394'
+            journal='20th International Conference on Mining Software Repositories (MSR)'
+            year='2023'
+          }}
+          {{> publication 
+            authors='Federico Cassano, John Gouwar, Daniel Nguyen, Sydney Nguyen, Luna Phipps-Costin, Donald Pinckney, Ming-Ho Yee, Yangtian Zi, Carolyn Jane Anderson, Molly Q Feldman, Arjun Guha, Michael Greenberg, Abhinav Jangda'
+            title='A Scalable and Extensible Approach to Benchmarking NL2Code for 18 Programming Languages'
+            url='https://arxiv.org/abs/2208.08227'
+            journal='IEEE Transactions on Software Engineering (TSE)'
+            year='2023'
+          }}
+        </ul>
+      </section>
+      <footer>
+        Contact me: federico [dot] cassano [at] federico [dot] codes
+      </footer>
+    </main>
+  </body>
+</html>
