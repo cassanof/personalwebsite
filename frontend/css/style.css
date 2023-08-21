@@ -206,6 +206,13 @@ section {
   grid-column: 6 / span 6;
 }
 
+.chess {
+  padding-top: 2em;
+  padding-left: 1em;
+  grid-column: 8 / span 8;
+  grid-row: 1 / 2;
+}
+
 /* If on mobile, full width */
 @media screen and (max-width: 600px) {
   header {
