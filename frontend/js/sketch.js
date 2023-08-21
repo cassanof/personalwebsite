@@ -1,3 +1,12 @@
+// THIS IS NOT A GAME OF CHESS!
+// It's a simplified version, where we have a 5x5 board and only 20 pieces.
+// - The game ends when one of the kings is captured or when there are no more valid moves.
+// - En-passant, castling, and pawn two-step moves are not allowed.
+// - Pawns may only promote to queens.
+// - The game is a tie if there are no more valid moves, there are only two kings left, or the turn count is greater than 50.
+// - The two AIs use depth-limited (only 4) minimax with alpha-beta pruning. When the board is repeated, the heuristic will be adjusted to a random value.
+// - The AI will make random moves for the first two turns.
+// - The game may end early if the AI predicts a win/loss/tie.
 let currWidth = window.innerWidth;
 let currHeight = window.innerHeight;
 
