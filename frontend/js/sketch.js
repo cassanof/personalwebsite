@@ -141,14 +141,14 @@ function heuristic(color, board) {
   for (let r = 0; r < board.length; r++) {
     for (let c = 0; c < board[0].length; c++) {
       let piece = board[r][c];
-      if (piece != null && piece[1] == KING) {
-        if (piece[0] == color) {
-          foundFriendlyKing = true;
-        } else {
-          foundEnemyKing = true;
-        }
-      }
       if (piece != null) {
+        if (piece[1] == KING) {
+          if (piece[0] == color) {
+            foundFriendlyKing = true;
+          } else {
+            foundEnemyKing = true;
+          }
+        }
         if (piece[0] == color) {
           score += pieceEval[piece[1]];
         } else {
@@ -404,6 +404,24 @@ function switchTurn() {
   turn = turn == WHITE ? BLACK : WHITE;
 }
 
+function orderMoves(board, moves) {
+  moves.sort((a, b) => {
+    let [ar, ac] = a[1];
+    let [br, bc] = b[1];
+    // Get the value of the piece being captured by move a
+    let aPiece = board[ar][ac];
+    let aValue = aPiece !== null ? pieceEval[aPiece[1]] : 0;
+
+    // Get the value of the piece being captured by move b
+    let bPiece = board[br][bc];
+    let bValue = bPiece !== null ? pieceEval[bPiece[1]] : 0;
+
+    return bValue - aValue; // Sort in descending order based on captured piece value
+  });
+  return moves;
+}
+
+let minimaxCalls = 0;
 function minimax(
   color,
   board,
@@ -413,6 +431,7 @@ function minimax(
   alpha = -Infinity,
   beta = Infinity
 ) {
+  minimaxCalls++;
   let [stat, h] = heuristic(color, board);
 
   // Base cases for depth or game-over states
@@ -420,7 +439,7 @@ function minimax(
     return { score: h, stat: stat, move: move };
   }
 
-  let moves = allValidMoves(color, board);
+  let moves = orderMoves(board, allValidMoves(color, board));
   if (moves.length === 0) {
     return { score: h, stat: stat, move: null };
   }
@@ -428,7 +447,7 @@ function minimax(
   // Maximizing player logic
   if (maximizingPlayer) {
     let maxEval = -Infinity;
-    let bestMoveForMax = null;
+    let bestMoveForMax = moves[0];
 
     for (let currentMove of moves) {
       let newBoard = makeMove(board, currentMove);
@@ -465,7 +484,7 @@ function minimax(
   // Minimizing player logic
   else {
     let minEval = Infinity;
-    let bestMoveForMin = null;
+    let bestMoveForMin = moves[0];
 
     for (let currentMove of moves) {
       let newBoard = makeMove(board, currentMove);
@@ -624,22 +643,16 @@ sketch.draw = () => {
     switchTurn();
     turns++;
     return;
-  } else if (turns >= 50) {
-    // after 50 turns, the game is a tie
+  } else if (turns >= 100) {
+    // after 100 turns, the game is a tie
+    console.log("Tie due to 100 turns");
     gameEnd(GAME_TIE);
     return;
   }
 
+  minimaxCalls = 0;
   const result = minimax(turn, currentBoard, null, 4, true);
-
-  // check if win/lose/tie
-  switch (result.stat) {
-    case GAME_FRIENDLY_WINS:
-    case GAME_ENEMY_WINS:
-    case GAME_TIE:
-      gameEnd(result.stat);
-      return;
-  }
+  console.log(`Minimax calls: ${minimaxCalls}`);
 
   if (result.move == null) {
     gameEnd(result.stat);
