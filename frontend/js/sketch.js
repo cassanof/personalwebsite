@@ -449,7 +449,7 @@ function minimax(
   // Maximizing player logic
   if (maximizingPlayer) {
     let maxEval = -Infinity;
-    let bestMoveForMax = moves[0];
+    let bestMoveForMax = null;
 
     for (let currentMove of moves) {
       let newBoard = makeMove(board, currentMove);
@@ -486,7 +486,7 @@ function minimax(
   // Minimizing player logic
   else {
     let minEval = Infinity;
-    let bestMoveForMin = moves[0];
+    let bestMoveForMin = null;
 
     for (let currentMove of moves) {
       let newBoard = makeMove(board, currentMove);
