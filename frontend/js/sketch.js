@@ -652,7 +652,7 @@ sketch.draw = () => {
 
   minimaxCalls = 0;
   const result = minimax(turn, currentBoard, null, 4, true);
-  console.log(`Minimax calls: ${minimaxCalls}`);
+  // console.log(`Minimax calls: ${minimaxCalls}`);
 
   if (result.move == null) {
     gameEnd(result.stat);
