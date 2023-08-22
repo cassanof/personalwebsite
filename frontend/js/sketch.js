@@ -3,10 +3,12 @@
 // - The game ends when one of the kings is captured or when there are no more valid moves.
 // - En-passant, castling, and pawn two-step moves are not allowed.
 // - Pawns may only promote to queens.
-// - The game is a tie if there are no more valid moves, there are only two kings left, or the turn count is greater than 50.
+// - The game is a tie if there are no more valid moves, there are only two kings left, or the turn count is greater than 100.
 // - The two AIs use depth-limited (only 4) minimax with alpha-beta pruning. When the board is repeated, the heuristic will be adjusted to a random value.
 // - The AI will make random moves for the first two turns.
 // - The game may end early if the AI predicts a win/loss/tie.
+// - Stalemate = win for previous player.
+
 let currWidth = window.innerWidth;
 let currHeight = window.innerHeight;
 
@@ -83,8 +85,8 @@ function drawPiece(r, c, color, type) {
   );
 }
 
-function changeStatus(message) {
-  document.getElementById("chess-status").innerHTML = message;
+function changeStatus(msg) {
+  document.getElementById("chess-status").innerHTML = msg;
 }
 
 let turn;
@@ -611,16 +613,14 @@ sketch.setup = () => {
   canvas.parent("chess");
 
   // add text to chess
-  let message = document.createElement("div");
-  message.id = "chess-msg";
-  message.className = "chess-msg";
+  let msg = document.createElement("div");
+  msg.id = "chess-msg";
+  msg.className = "chess-msg";
   const link =
-    "https://github.com/cassanof/personalwebsite/blob/b898a462ed00133728cb4d67632171ed00973189/frontend/js/sketch.js#L1";
-  message.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
-  // center text horizontally
-  // message.style.transform = "translateX(15%)";
+    "https://github.com/cassanof/personalwebsite/blob/master/frontend/js/sketch.js#L1";
+  msg.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
 
-  chess.appendChild(message);
+  chess.appendChild(msg);
 
   // border around canvas
   canvas.style("border", "5px solid #84a463");
