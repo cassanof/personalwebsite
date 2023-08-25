@@ -594,7 +594,7 @@ function gameEnd(stat) {
       changeStatus(`It's a tie!`);
       break;
     case GAME_ONGOING:
-      changeStatus(`${colorName(turn)} checkmated!`);
+      changeStatus(`${colorName(turn)} lost!`);
       break;
   }
   frameRate(0.15);
