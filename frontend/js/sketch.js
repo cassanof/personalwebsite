@@ -89,6 +89,26 @@ function changeStatus(msg) {
   document.getElementById("chess-status").innerHTML = msg;
 }
 
+let currentLimit = 4;
+
+function makeSmarter() {
+  if (currentLimit >= 8) {
+    console.log("Already at max depth");
+    return;
+  }
+  currentLimit += 2;
+  console.log(`Depth limit: ${currentLimit}`);
+}
+
+function makeDumber() {
+  if (currentLimit <= 2) {
+    console.log("Already at min depth");
+    return;
+  }
+  currentLimit -= 2;
+  console.log(`Depth limit: ${currentLimit}`);
+}
+
 let turn;
 let currentBoard;
 let turns;
@@ -613,14 +633,23 @@ sketch.setup = () => {
   canvas.parent("chess");
 
   // add text to chess
-  let msg = document.createElement("div");
-  msg.id = "chess-msg";
-  msg.className = "chess-msg";
-  const link =
-    "https://github.com/cassanof/personalwebsite/blob/master/frontend/js/sketch.js#L1";
-  msg.innerHTML = `<a href="${link}" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">This is NOT chess</font></a>`;
+  let mkSmarterMsg = document.createElement("div");
+  mkSmarterMsg.id = "chess-msg";
+  mkSmarterMsg.className = "chess-msg";
+  mkSmarterMsg.innerHTML = `<a href="#" class="link-offset-2 link-underline-success"><font color="#84a463">Make Smarter</font></a>`;
+  // add event listener
+  mkSmarterMsg.addEventListener("click", makeSmarter);
+  chess.appendChild(mkSmarterMsg);
 
-  chess.appendChild(msg);
+  // make dumber
+  let mkDumberMsg = document.createElement("div");
+  mkDumberMsg.id = "chess-msg";
+  mkDumberMsg.className = "chess-msg";
+  mkDumberMsg.innerHTML = `<a href="#" class="link-offset-2 link-underline-success"><font color="#84a463">Make Dumber</font></a>`;
+  // add event listener
+  mkDumberMsg.addEventListener("click", makeDumber);
+  chess.appendChild(mkDumberMsg);
+
 
   // border around canvas
   canvas.style("border", "5px solid #84a463");
@@ -651,7 +680,7 @@ sketch.draw = () => {
   }
 
   minimaxCalls = 0;
-  const result = minimax(turn, currentBoard, null, 4, true);
+  const result = minimax(turn, currentBoard, null, currentLimit, true);
   // console.log(`Minimax calls: ${minimaxCalls}`);
 
   if (result.move == null) {
