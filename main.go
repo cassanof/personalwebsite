@@ -31,7 +31,7 @@ type GenerateRequestQueued struct {
 
 const (
 	STATIC_PATH    = "./frontend/dist/"
-	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multipl-t-jl"
+	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multiplt-rkt"
 )
 
 var (
