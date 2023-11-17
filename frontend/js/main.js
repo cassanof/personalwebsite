@@ -51,6 +51,9 @@ document.getElementById("generateButton").onclick = async function () {
     console.log(data);
     // update html and remove hidden attr
     document.getElementById("outputCode").innerHTML = generated;
+    if (outputCode.hasAttribute("data-highlighted")) {
+      outputCode.removeAttribute("data-highlighted");
+    }
     hljs.highlightBlock(outputCode);
     if (outputCode.hasAttribute("hidden")) {
       outputCode.removeAttribute("hidden");
