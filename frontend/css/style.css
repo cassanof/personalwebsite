@@ -191,6 +191,7 @@ header {
   font-size: 2.5rem;
   padding: 2rem;
   margin-bottom: var(--spacing);
+  border-radius: 10px;
 }
 
 section {
@@ -200,6 +201,7 @@ section {
   font-size: 1.25rem;
   line-height: 1.5;
   margin-bottom: var(--spacing);
+  border-radius: 10px;
 }
 
 .aboutme {
@@ -223,8 +225,90 @@ section {
   text-shadow: 0 0 10px #000;
 }
 
+.codegen {
+  height: 50%;
+  grid-column: 2 / span 3;
+  grid-row: 2 / 2;
+  background: var(--dark-bg);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.codegen input,
+textarea,
+button {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+
+.codegen textarea {
+  resize: none;
+}
+
+.codegen button {
+  border: none;
+  color: #343434;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  cursor: pointer;
+  background: linear-gradient(270deg, #4fff80, #34bbb3, #4caaa0, #4fff90);
+  background-size: 2000% 2000%;
+  opacity: 0.9;
+  animation: shiftColor 10s ease infinite;
+}
+
+@keyframes shiftColor {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.codegen button:hover {
+  /* just change opacity */
+  opacity: 1;
+}
+
+.spinner {
+  border: 4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 50%;
+  border-top: 4px solid #fb6a16;
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  display: none; /* Hidden by default */
+  margin: auto;
+  margin-top: 3em;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.output {
+  /* make text wrap */
+  white-space: pre-wrap;
+  font-family: monospace;
+  /* small font size to fit more */
+  font-size: 0.8rem;
+}
+
 /* If on mobile, full width */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   header {
     grid-column: 1 / span 12;
   }
@@ -234,12 +318,19 @@ section {
   }
 
   .aboutme {
+    margin-top: 2em;
     grid-column: 1 / span 12;
   }
 
   .chess {
     grid-column: 6 / 6;
     padding-bottom: 2em;
+  }
+
+  .codegen {
+    grid-column: 1 / span 12;
+    grid-row: 3 / 3;
+    height: 100%;
   }
 
   .chess-status {

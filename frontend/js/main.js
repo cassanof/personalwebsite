@@ -13,3 +13,51 @@ function boldName() {
 }
 
 boldName();
+
+document.getElementById("generateButton").onclick = async function () {
+  // if the spinner is already spinning, don't do anything
+  let spinner = document.getElementById("spinner");
+  if (spinner.style.display == "block") {
+    return;
+  }
+  let outputCode = document.getElementById("outputCode");
+  outputCode.setAttribute("hidden", "");
+
+  spinner.style.display = "block";
+  // create json with prompt values
+  let doc = document.getElementById("docString").value.trim();
+  let sig = document.getElementById("functionSignature").value.split("...")[0];
+  let prompt = doc + "\n" + sig;
+  let json = {
+    prompt: prompt,
+  };
+  console.log(json);
+  // send json to backend
+  // TOOD: change to /generate
+  try {
+    let response = await fetch("/generate", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(json),
+    });
+    // get response
+    let data = await response.json();
+    let generated = data.generated;
+    if (generated === undefined) {
+      throw "Error: generated is undefined";
+    }
+    console.log(data);
+    // update html and remove hidden attr
+    document.getElementById("outputCode").innerHTML = generated;
+    hljs.highlightBlock(outputCode);
+    if (outputCode.hasAttribute("hidden")) {
+      outputCode.removeAttribute("hidden");
+    }
+  } catch (e) {
+    console.log(e);
+  }
+  spinner.style.display = "none";
+  return;
+};
