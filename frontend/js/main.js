@@ -25,7 +25,7 @@ document.getElementById("generateButton").onclick = async function () {
 
   spinner.style.display = "block";
   // create json with prompt values
-  let doc = document.getElementById("docString").value;
+  let doc = document.getElementById("docString").value.trim();
   let sig = document.getElementById("functionSignature").value.split("...")[0];
   let prompt = doc + "\n" + sig;
   let json = {

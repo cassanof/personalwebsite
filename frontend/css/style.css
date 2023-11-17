@@ -308,7 +308,7 @@ button {
 }
 
 /* If on mobile, full width */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   header {
     grid-column: 1 / span 12;
   }
@@ -318,12 +318,19 @@ button {
   }
 
   .aboutme {
+    margin-top: 2em;
     grid-column: 1 / span 12;
   }
 
   .chess {
     grid-column: 6 / 6;
     padding-bottom: 2em;
+  }
+
+  .codegen {
+    grid-column: 1 / span 12;
+    grid-row: 3 / 3;
+    height: 100%;
   }
 
   .chess-status {
