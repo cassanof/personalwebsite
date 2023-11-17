@@ -97,7 +97,9 @@ func main() {
 type HuggingFaceRequest struct {
 	Inputs     string `json:"inputs"`
 	Parameters struct {
-		MaxNewTokens int `json:"max_new_tokens"`
+		MaxNewTokens int     `json:"max_new_tokens"`
+		Temperature  float32 `json:"temperature"`
+		TopP         float32 `json:"top_p"`
 	} `json:"parameters"`
 	Options struct {
 		WaitForModel bool `json:"wait_for_model"`
@@ -124,9 +126,13 @@ func generateQueueWorker() {
 		reqBody := HuggingFaceRequest{
 			Inputs: q_req.Prompt,
 			Parameters: struct {
-				MaxNewTokens int `json:"max_new_tokens"`
+				MaxNewTokens int     `json:"max_new_tokens"`
+				Temperature  float32 `json:"temperature"`
+				TopP         float32 `json:"top_p"`
 			}{
 				MaxNewTokens: 250,
+				Temperature:  0.2,
+				TopP:         0.95,
 			},
 			Options: struct {
 				WaitForModel bool `json:"wait_for_model"`
