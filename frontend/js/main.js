@@ -16,11 +16,14 @@ boldName();
 
 document.getElementById("generateButton").onclick = async function () {
   // if the spinner is already spinning, don't do anything
-  if (document.getElementById("spinner").style.display == "block") {
+  let spinner = document.getElementById("spinner");
+  if (spinner.style.display == "block") {
     return;
   }
+  let outputCode = document.getElementById("outputCode");
+  outputCode.setAttribute("hidden", "");
 
-  document.getElementById("spinner").style.display = "block";
+  spinner.style.display = "block";
   // create json with prompt values
   let doc = document.getElementById("docString").value;
   let sig = document.getElementById("functionSignature").value.split("...")[0];
@@ -42,17 +45,19 @@ document.getElementById("generateButton").onclick = async function () {
     // get response
     let data = await response.json();
     let generated = data.generated;
+    if (generated === undefined) {
+      throw "Error: generated is undefined";
+    }
     console.log(data);
     // update html and remove hidden attr
-    let el = document.getElementById("outputCode");
     document.getElementById("outputCode").innerHTML = generated;
-    hljs.highlightBlock(el);
-    if (el.hasAttribute("hidden")) {
-      el.removeAttribute("hidden");
+    hljs.highlightBlock(outputCode);
+    if (outputCode.hasAttribute("hidden")) {
+      outputCode.removeAttribute("hidden");
     }
   } catch (e) {
     console.log(e);
   }
-  document.getElementById("spinner").style.display = "none";
+  spinner.style.display = "none";
   return;
 };

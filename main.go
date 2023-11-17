@@ -31,7 +31,7 @@ type GenerateRequestQueued struct {
 
 const (
 	STATIC_PATH    = "./frontend/dist/"
-	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multiplt-rkt"
+	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multipl-t-rkt"
 )
 
 var (
@@ -74,6 +74,7 @@ func main() {
 		Format: "[${time}] ${status} - ${latency} ${method} ${path} | ${ips} ${referer} - ${reqHeader:User-Agent}\n",
 		Output: file,
 	}))
+	log.SetOutput(file)
 
 	app.Post("/generate", generateEndpoint)
 	for i := 0; i < MAX_QUEUE_SIZE; i++ {
@@ -130,7 +131,7 @@ func generateQueueWorker() {
 				Temperature  float32 `json:"temperature"`
 				TopP         float32 `json:"top_p"`
 			}{
-				MaxNewTokens: 250,
+				MaxNewTokens: 150,
 				Temperature:  0.2,
 				TopP:         0.95,
 			},
