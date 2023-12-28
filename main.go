@@ -149,7 +149,7 @@ func generateQueueWorker() {
 				Temperature  float32 `json:"temperature"`
 				TopP         float32 `json:"top_p"`
 			}{
-				MaxNewTokens: 150,
+				MaxNewTokens: 300,
 				Temperature:  0.2,
 				TopP:         0.95,
 			},
