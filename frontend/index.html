@@ -143,26 +143,52 @@
         <button id="generateButton">Generate</button>
         <div class="spinner" id="spinner"></div>
         <pre><code class="language-scheme" id="outputCode" hidden></code></pre>
+        <p class="poweredBy">Powered by 
+        <a 
+            href="https://arxiv.org/abs/2308.09895"
+            class="link-offset-2 link-underline-success"
+            target="_blank"><font color="#84a463">MultiPL-T</font></a></p>
       </div>
-
       <section>
-        <h2 id="folio-headline"><font color="#f25e52">Academic</font> Work</h2>
+        <h2 id="folio-headline"><font color="#f25e52">Academic</font> Portfolio</h2>
+        <h3 class="pb-4" style="text-align: center;">Awards</h3>
+        <ul class="pb-4" id="awards">
+          {{> award 
+            title='CRA Outstanding Undergraduate Researcher Award Finalist (2024)'
+            url='https://cra.org/about/awards/outstanding-undergraduate-researcher-award/'
+            description='Nominated as one of the top undergraduate CS researchers in the country'
+          }}
+          {{> award 
+            title='Northeast Collegiate Cyber Defense Competition (NECCDC) Champion (2021-2023)'
+            url='https://neccdl.org/history/winners/'
+            description='Won the regional competition for the past two years'
+          }}
+        </ul>
+        <h3 class="pb-4" style="text-align: center;">Publications</h3>
         <ul class="pb-4" id="pubs">
           {{> publication 
             authors='Federico Cassano, Luisa Li, Akul Sethi, Noah Shinn, Abby Brennan-Jones, Anton Lozhkov, Carolyn Jane Anderson, Arjun Guha'
             title='Can It Edit? Evaluating the Ability of Large Language Models to Follow Code Editing Instructions'
             url='https://arxiv.org/abs/2312.12450'
-            journal='In Submission to LLM4Code 2024 (ICSE Workshop)'
+            journal='In Submission to LLM4Code (ICSE Workshop)'
             abbrev='TBD'
-            year='2023'
+            year='2024'
+          }}
+          {{> publication 
+            authors='Federico Cassano, Charles Bershatsky, Jacob Ginesin, Sasha Bashenko'
+            title='SafeLLVM: LLVM Without The ROP Gadgets!'
+            url='https://arxiv.org/abs/2305.06092'
+            journal='In Submission to BAR (NDSS Workshop)'
+            abbrev='TBD'
+            year='2024'
           }}
           {{> publication 
             authors='Federico Cassano, John Gouwar, Francesca Lucchetti, Claire Schlesinger, Carolyn Jane Anderson, Michael Greenberg, Abhinav Jangda, Arjun Guha'
             title='Knowledge Transfer from High-Resource to Low-Resource Programming Languages for Code LLMs'
             url='https://arxiv.org/abs/2308.09895'
-            journal='In Submission to PLDI 2024'
+            journal='In Submission to PLDI'
             abbrev='TBD'
-            year='2023'
+            year='2024'
           }}
           {{> publication 
             authors='Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao'
@@ -210,14 +236,6 @@
             url='https://arxiv.org/abs/2203.13737'
             journal='IEEE/ACM International Conference on Software Engineering'
             abbrev='ICSE'
-            year='2023'
-          }}
-          {{> publication 
-            authors='Federico Cassano, Charles Bershatsky, Jacob Ginesin, Sasha Bashenko'
-            title='SafeLLVM: LLVM Without The ROP Gadgets!'
-            url='https://arxiv.org/abs/2305.06092'
-            journal='preprint arXiv:2305.06092'
-            abbrev='arXiv'
             year='2023'
           }}
         </ul>
