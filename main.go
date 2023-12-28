@@ -9,6 +9,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"sync"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/compress"
@@ -29,6 +30,11 @@ type GenerateRequestQueued struct {
 	responseQueue chan *GenerateResponse
 }
 
+type Cache struct {
+	Requests map[string]*GenerateResponse
+	Lock     sync.RWMutex
+}
+
 const (
 	STATIC_PATH    = "./frontend/dist/"
 	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multipl-t-rkt"
@@ -45,6 +51,10 @@ var (
 	MAX_QUEUE_SIZE = 1
 	API_KEY        = ""
 	generateQueue  = make(chan GenerateRequestQueued, MAX_QUEUE_SIZE)
+	cache          = Cache{
+		Requests: make(map[string]*GenerateResponse),
+		Lock:     sync.RWMutex{},
+	}
 )
 
 func main() {
@@ -113,6 +123,14 @@ func generateQueueWorker() {
 		if q_req.Prompt == "" {
 			return &GenerateResponse{Generated: ""}
 		}
+		// check cache
+		cache.Lock.RLock()
+		if val, ok := cache.Requests[q_req.Prompt]; ok {
+			cache.Lock.RUnlock()
+			log.Println("Cache hit for: ", q_req.Prompt)
+			return val
+		}
+		cache.Lock.RUnlock()
 
 		httpClient := &http.Client{}
 		req, err := http.NewRequest("POST", MODEL_ENDPOINT, nil)
@@ -170,7 +188,12 @@ func generateQueueWorker() {
 		generated := respBody[0]["generated_text"]
 		log.Println("Generated: \n", generated)
 
-		return &GenerateResponse{Generated: generated}
+		res := GenerateResponse{Generated: generated}
+		// add to cache
+		cache.Lock.Lock()
+		cache.Requests[q_req.Prompt] = &res
+		cache.Lock.Unlock()
+		return &res
 	}
 
 	for {
