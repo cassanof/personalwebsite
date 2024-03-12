@@ -150,8 +150,8 @@ func generateQueueWorker() {
 				TopP         float32 `json:"top_p"`
 			}{
 				MaxNewTokens: 200,
-				Temperature:  0.2,
-				TopP:         0.95,
+				Temperature:  0.0,
+				TopP:         1.0,
 			},
 			Options: struct {
 				WaitForModel bool `json:"wait_for_model"`

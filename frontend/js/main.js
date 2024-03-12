@@ -26,8 +26,13 @@ document.getElementById("generateButton").onclick = async function () {
   spinner.style.display = "block";
   // create json with prompt values
   let doc = document.getElementById("docString").value.trim();
-  let sig = document.getElementById("functionSignature").value.split("...")[0];
-  let prompt = doc + "\n" + sig;
+  if (doc === "") {
+    spinner.style.display = "none";
+    return;
+  }
+  // for each newline, add comment
+  doc = doc.split("\n").map((line) => ";; " + line).join("\n");
+  let prompt = doc + "\n(define (";
   let json = {
     prompt: prompt,
   };

@@ -130,17 +130,17 @@
       </section>
 
       <div id="codegen" class="codegen">
-        <textarea id="docString" placeholder="Purpose Statement">;; Produces the nth Fibonacci number.
-;; Uses an helper with an accumulator.</textarea>
-        <input type="text" id="functionSignature" placeholder="Function Signature" value="(define (fib n) ...)">
+        <textarea id="docString" placeholder="Purpose Statement">Produces the nth Fibonacci number.
+Uses an helper with an accumulator.</textarea>
         <button id="generateButton">Generate</button>
-        <div class="spinner" id="spinner"></div>
+        <div class="spinner" id="spinner">
+        </div>
         <pre><code class="language-scheme" id="outputCode" hidden></code></pre>
         <p class="poweredBy">Powered by 
         <a 
             href="https://arxiv.org/abs/2308.09895"
             class="link-offset-2 link-underline-success"
-            target="_blank"><font color="#84a463">MultiPL-T</font></a></p>
+            target="_blank"><font color="#84a463">MultiPL-T</font></a>, only 1 billion parameters.</p>
       </div>
       <section>
         <h2 id="folio-headline"><font color="#f25e52">Academic</font> Portfolio</h2>
