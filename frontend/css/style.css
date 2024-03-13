@@ -227,7 +227,7 @@ section {
 
 .codegen {
   position: relative;
-  height: 50%;
+  height: 100%;
   grid-column: 2 / span 3;
   grid-row: 2 / 2;
   background: var(--dark-bg);
@@ -312,12 +312,16 @@ button {
   }
 }
 
-.output {
+.outputCode {
   /* make text wrap */
   white-space: pre-wrap;
   font-family: monospace;
   /* small font size to fit more */
   font-size: 0.8rem;
+  /* if the code is too long, make it scroll */
+  overflow: auto;
+  /* increase bottom margin */
+  margin-bottom: 1em;
 }
 
 /* If on mobile, full width */

@@ -31,7 +31,10 @@ document.getElementById("generateButton").onclick = async function () {
     return;
   }
   // for each newline, add comment
-  doc = doc.split("\n").map((line) => ";; " + line).join("\n");
+  doc = doc
+    .split("\n")
+    .map((line) => ";; " + line)
+    .join("\n");
   let prompt = doc + "\n(define (";
   let json = {
     prompt: prompt,
@@ -55,7 +58,11 @@ document.getElementById("generateButton").onclick = async function () {
     }
     console.log(data);
     // update html and remove hidden attr
-    document.getElementById("outputCode").innerHTML = generated;
+    let outputCode = document.getElementById("outputCode");
+    outputCode.innerHTML = generated;
+    // set maxheight to the height of the codegen section / 2
+    let codegen = document.getElementById("codegen");
+    outputCode.style.maxHeight = (codegen.clientHeight / 2) + "px";
     if (outputCode.hasAttribute("data-highlighted")) {
       outputCode.removeAttribute("data-highlighted");
     }
