@@ -233,14 +233,14 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	jsonStr := string(resBody)
 	fmt.Println("respBody: ", jsonStr)
 	resBytes := []byte(jsonStr)
-	var respBody map[string]string
+	var respBody map[string]interface{}
 	// json unmarshal
 	if err := json.Unmarshal(resBytes, &respBody); err != nil {
-		log.Println(err)
+		log.Println("Error! ", err)
 		return nil
 	}
-	fmt.Println("respBody: ", respBody)
-	generated := respBody["content"]
+	fmt.Println("parsed respbody: ", respBody)
+	generated := respBody["content"].(string)
 	return &generated
 }
 
