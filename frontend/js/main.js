@@ -60,9 +60,9 @@ document.getElementById("generateButton").onclick = async function () {
     // update html and remove hidden attr
     let outputCode = document.getElementById("outputCode");
     outputCode.innerHTML = generated;
-    // set maxheight to the height of the codegen section / 2
+    // set maxheight to the height of the codegen section / 1.5
     let codegen = document.getElementById("codegen");
-    outputCode.style.maxHeight = (codegen.clientHeight / 2) + "px";
+    outputCode.style.maxHeight = (codegen.clientHeight / 1.5) + "px";
     if (outputCode.hasAttribute("data-highlighted")) {
       outputCode.removeAttribute("data-highlighted");
     }
