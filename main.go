@@ -225,7 +225,11 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	}
 	// print resp in string
 	fmt.Println("resp: ", resp)
-	resBody, _ := io.ReadAll(resp.Body)
+	resBody, e := io.ReadAll(resp.Body)
+	if e != nil {
+		log.Println(e)
+		return nil
+	}
 	jsonStr := string(resBody)
 	fmt.Println("respBody: ", jsonStr)
 	resBytes := []byte(jsonStr)
