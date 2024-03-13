@@ -240,7 +240,7 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 		return nil
 	}
 	fmt.Println("parsed respbody: ", respBody)
-	generated := respBody["content"].(string)
+	generated := q_req.Prompt + respBody["content"].(string)
 	return &generated
 }
 
