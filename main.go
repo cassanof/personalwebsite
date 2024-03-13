@@ -36,8 +36,7 @@ type Cache struct {
 }
 
 const (
-	STATIC_PATH    = "./frontend/dist/"
-	MODEL_ENDPOINT = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multipl-t-rkt"
+	STATIC_PATH = "./frontend/dist/"
 )
 
 var (
@@ -48,20 +47,42 @@ var (
 		GETOnly:       false,
 		AppName:       "Federico's Personal Website",
 	})
-	MAX_QUEUE_SIZE = 1
-	API_KEY        = ""
-	generateQueue  = make(chan GenerateRequestQueued, MAX_QUEUE_SIZE)
-	cache          = Cache{
+	MAX_QUEUE_SIZE    = 1
+	API_KEY           = ""
+	ENGINE            = ""
+	MODEL_ENDPOINT    = "https://api-inference.huggingface.co/models/gammatau/deepseek-1b-multipl-t-rkt"
+	LLAMACPP_ENDPOINT = "http://localhost:8000/completion"
+	generateQueue     = make(chan GenerateRequestQueued, MAX_QUEUE_SIZE)
+	cache             = Cache{
 		Requests: make(map[string]*GenerateResponse),
 		Lock:     sync.RWMutex{},
 	}
 )
 
 func main() {
-	// get api key and optionally max queue size from ENV variables
-	API_KEY = os.Getenv("API_KEY")
-	if API_KEY == "" {
-		log.Fatal("huggingface API key not set!! set it with the API_KEY environment variable")
+	// get engine for completion
+	ENGINE = os.Getenv("ENGINE")
+	switch ENGINE {
+	case "HF":
+		ENGINE = "HF"
+	case "LLAMACPP":
+		ENGINE = "LLAMACPP"
+		if os.Getenv("LLAMACPP_ENDPOINT") != "" {
+			LLAMACPP_ENDPOINT = os.Getenv("LLAMACPP_ENDPOINT")
+		}
+	default:
+		// default to HF
+		ENGINE = "HF"
+	}
+
+	if ENGINE == "HF" {
+		API_KEY = os.Getenv("API_KEY")
+		if API_KEY == "" {
+			log.Fatal("huggingface API key not set!! set it with the API_KEY environment variable. Or use llamacpp as the engine with ENGINE=LLAMACPP")
+		}
+		if os.Getenv("MODEL_ENDPOINT") != "" {
+			MODEL_ENDPOINT = os.Getenv("MODEL_ENDPOINT")
+		}
 	}
 
 	// set max queue size to env variable if set
@@ -117,6 +138,103 @@ type HuggingFaceRequest struct {
 	} `json:"options"`
 }
 
+type LlamaCppRequest struct {
+	Prompt      string  `json:"prompt"`
+	NPredict    int     `json:"n_predict"`
+	Temperature float32 `json:"temperature"`
+}
+
+func postJsonReq(url string, reqBody interface{}, auth bool) *http.Response {
+	httpClient := &http.Client{}
+	req, err := http.NewRequest("POST", url, nil)
+	if err != nil {
+		log.Fatal(err)
+		return nil
+	}
+	req.Header.Set("Content-Type", "application/json")
+	if auth {
+		req.Header.Set("Authorization", "Bearer "+API_KEY)
+	}
+
+	reqBodyJson, err := json.Marshal(reqBody)
+	if err != nil {
+		log.Println(err)
+		return nil
+	}
+
+	req.Body = io.NopCloser(strings.NewReader(string(reqBodyJson)))
+
+	resp, err := httpClient.Do(req)
+	if err != nil {
+		log.Println(err)
+		return nil
+	}
+	defer resp.Body.Close()
+	return resp
+}
+
+func sendHfRequest(q_req GenerateRequest) *string {
+	// json body
+	reqBody := HuggingFaceRequest{
+		Inputs: q_req.Prompt,
+		Parameters: struct {
+			MaxNewTokens int     `json:"max_new_tokens"`
+			Temperature  float32 `json:"temperature"`
+			TopP         float32 `json:"top_p"`
+		}{
+			MaxNewTokens: 200,
+			Temperature:  0.0,
+			TopP:         1.0,
+		},
+		Options: struct {
+			WaitForModel bool `json:"wait_for_model"`
+		}{
+			WaitForModel: true,
+		},
+	}
+
+	resp := postJsonReq(MODEL_ENDPOINT, reqBody, true)
+	if resp == nil {
+		return nil
+	}
+	// print resp in string
+	fmt.Println("resp: ", resp)
+	var respBody []map[string]string
+	// json unmarshal
+	if err := json.NewDecoder(resp.Body).Decode(&respBody); err != nil {
+		log.Println(err)
+		return nil
+	}
+	fmt.Println("respBody: ", respBody)
+	generated := respBody[0]["generated_text"]
+	return &generated
+}
+
+func sendLlamaCppRequest(q_req GenerateRequest) *string {
+	// json body
+	reqBody := LlamaCppRequest{
+		Prompt:      q_req.Prompt,
+		NPredict:    1024,
+		Temperature: 0.0,
+	}
+
+	resp := postJsonReq(LLAMACPP_ENDPOINT, reqBody, false)
+	if resp == nil {
+		return nil
+	}
+	// print resp in string
+	fmt.Println("resp: ", resp)
+	var respBody map[string]string
+	// json unmarshal
+	if err := json.NewDecoder(resp.Body).Decode(&respBody); err != nil {
+		log.Println(err)
+		return nil
+	}
+	fmt.Println("respBody: ", respBody)
+	generated := respBody["content"]
+	return &generated
+}
+
 func generateQueueWorker() {
 	handleGenerateRequest := func(q_req GenerateRequest) *GenerateResponse {
 		log.Println("Received generate request: ", q_req.Prompt)
@@ -132,60 +250,16 @@ func generateQueueWorker() {
 		}
 		cache.Lock.RUnlock()
 
-		httpClient := &http.Client{}
-		req, err := http.NewRequest("POST", MODEL_ENDPOINT, nil)
-		if err != nil {
-			log.Fatal(err)
+		var reqRes *string
+		if ENGINE == "HF" {
+			reqRes = sendHfRequest(q_req)
+		} else if ENGINE == "LLAMACPP" {
+			reqRes = sendLlamaCppRequest(q_req)
+		}
+		if reqRes == nil {
 			return nil
 		}
-		req.Header.Set("Content-Type", "application/json")
-		req.Header.Set("Authorization", "Bearer "+API_KEY)
-
-		// json body
-		reqBody := HuggingFaceRequest{
-			Inputs: q_req.Prompt,
-			Parameters: struct {
-				MaxNewTokens int     `json:"max_new_tokens"`
-				Temperature  float32 `json:"temperature"`
-				TopP         float32 `json:"top_p"`
-			}{
-				MaxNewTokens: 200,
-				Temperature:  0.0,
-				TopP:         1.0,
-			},
-			Options: struct {
-				WaitForModel bool `json:"wait_for_model"`
-			}{
-				WaitForModel: true,
-			},
-		}
-
-		reqBodyJson, err := json.Marshal(reqBody)
-		if err != nil {
-			log.Println(err)
-			return nil
-		}
-
-		req.Body = io.NopCloser(strings.NewReader(string(reqBodyJson)))
-
-		resp, err := httpClient.Do(req)
-		if err != nil {
-			log.Println(err)
-			return nil
-		}
-		defer resp.Body.Close()
-		// [{'generated_text': "The answer to the universe is 42.'''\nfunction answer_to_everything("}]
-
-		// print resp in string
-		fmt.Println("resp: ", resp)
-		var respBody []map[string]string
-		// json unmarshal
-		if err := json.NewDecoder(resp.Body).Decode(&respBody); err != nil {
-			log.Println(err)
-			return nil
-		}
-		fmt.Println("respBody: ", respBody)
-		generated := respBody[0]["generated_text"]
+		generated := *reqRes
 		log.Println("Generated: \n", generated)
 
 		res := GenerateResponse{Generated: generated}
