@@ -214,7 +214,7 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	// json body
 	reqBody := LlamaCppRequest{
 		Prompt:      q_req.Prompt,
-		NPredict:    1024,
+		NPredict:    2048,
 		Temperature: 0.0,
 	}
 
