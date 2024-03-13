@@ -169,7 +169,6 @@ func postJsonReq(url string, reqBody interface{}, auth bool) *http.Response {
 		log.Println(err)
 		return nil
 	}
-	defer resp.Body.Close()
 	return resp
 }
 
@@ -194,6 +193,7 @@ func sendHfRequest(q_req GenerateRequest) *string {
 	}
 
 	resp := postJsonReq(MODEL_ENDPOINT, reqBody, true)
+	defer resp.Body.Close()
 	if resp == nil {
 		return nil
 	}
@@ -219,6 +219,7 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	}
 
 	resp := postJsonReq(LLAMACPP_ENDPOINT, reqBody, false)
+	defer resp.Body.Close()
 	if resp == nil {
 		return nil
 	}
