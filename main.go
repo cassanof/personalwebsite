@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"io"
 	"log"
 	"net/http"
@@ -197,15 +196,12 @@ func sendHfRequest(q_req GenerateRequest) *string {
 	if resp == nil {
 		return nil
 	}
-	// print resp in string
-	fmt.Println("resp: ", resp)
 	var respBody []map[string]string
 	// json unmarshal
 	if err := json.NewDecoder(resp.Body).Decode(&respBody); err != nil {
 		log.Println(err)
 		return nil
 	}
-	fmt.Println("respBody: ", respBody)
 	generated := respBody[0]["generated_text"]
 	return &generated
 }
@@ -223,15 +219,12 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	if resp == nil {
 		return nil
 	}
-	// print resp in string
-	fmt.Println("resp: ", resp)
 	resBody, e := io.ReadAll(resp.Body)
 	if e != nil {
 		log.Println(e)
 		return nil
 	}
 	jsonStr := string(resBody)
-	fmt.Println("respBody: ", jsonStr)
 	resBytes := []byte(jsonStr)
 	var respBody map[string]interface{}
 	// json unmarshal
@@ -239,14 +232,13 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 		log.Println("Error! ", err)
 		return nil
 	}
-	fmt.Println("parsed respbody: ", respBody)
 	generated := q_req.Prompt + respBody["content"].(string)
 	return &generated
 }
 
 func generateQueueWorker() {
 	handleGenerateRequest := func(q_req GenerateRequest) *GenerateResponse {
-		log.Println("Received generate request: ", q_req.Prompt)
+		log.Println("Received generate request:\n", q_req.Prompt)
 		if q_req.Prompt == "" {
 			return &GenerateResponse{Generated: ""}
 		}
@@ -269,7 +261,7 @@ func generateQueueWorker() {
 			return nil
 		}
 		generated := *reqRes
-		log.Println("Generated: \n", generated)
+		log.Println("Generated:\n", generated)
 
 		res := GenerateResponse{Generated: generated}
 		// add to cache
