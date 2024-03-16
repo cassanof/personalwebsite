@@ -104,7 +104,8 @@ func main() {
 		Format: "[${time}] ${status} - ${latency} ${method} ${path} | ${ips} ${referer} - ${reqHeader:User-Agent}\n",
 		Output: file,
 	}))
-	log.SetOutput(file)
+	// output both to console and file
+	log.SetOutput(io.MultiWriter(os.Stdout, file))
 
 	app.Post("/generate", generateEndpoint)
 	for i := 0; i < MAX_QUEUE_SIZE; i++ {
