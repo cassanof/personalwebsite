@@ -6,8 +6,20 @@
         {{ authors }}
       </li>
       <li>
-        <i>{{ journal }}</i> <b>({{ abbrev }})</b>, {{ year }}
+        <i>{{ journal }}</i> <b>({{ abbrev }})</b>, {{ year }}. {{#if award}}<b>{{ award }}</b>{{/if}}
       </li>
+      <!-- journal 2 if it exists -->
+      {{#if journal2}}
+      <li>
+        <i>{{ journal2 }}</i> <b>({{ abbrev2 }})</b>, {{ year2 }}. {{#if award2}}<b>{{ award2 }}</b>{{/if}}
+      </li>
+      {{/if}}
+      <!-- journal 3 if it exists -->
+      {{#if journal3}}
+      <li>
+        <i>{{ journal3 }}</i> <b>({{ abbrev3 }})</b>, {{ year3 }}. {{#if award3}}<b>{{ award3 }}</b>{{/if}}
+      </li>
+      {{/if}}
     </ul>
   </div>
 </li>
