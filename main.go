@@ -193,10 +193,10 @@ func sendHfRequest(q_req GenerateRequest) *string {
 	}
 
 	resp := postJsonReq(MODEL_ENDPOINT, reqBody, true)
-	defer resp.Body.Close()
 	if resp == nil {
 		return nil
 	}
+	defer resp.Body.Close()
 	var respBody []map[string]string
 	// json unmarshal
 	if err := json.NewDecoder(resp.Body).Decode(&respBody); err != nil {
@@ -216,10 +216,10 @@ func sendLlamaCppRequest(q_req GenerateRequest) *string {
 	}
 
 	resp := postJsonReq(LLAMACPP_ENDPOINT, reqBody, false)
-	defer resp.Body.Close()
 	if resp == nil {
 		return nil
 	}
+	defer resp.Body.Close()
 	resBody, e := io.ReadAll(resp.Body)
 	if e != nil {
 		log.Println(e)
@@ -242,6 +242,12 @@ func generateQueueWorker() {
 		log.Println("Received generate request:\n", q_req.Prompt)
 		if q_req.Prompt == "" {
 			return &GenerateResponse{Generated: ""}
+		}
+		// clip Prompt to max 2000 characters
+		if len(q_req.Prompt) > 2000 {
+			log.Println("Clipping prompt to 2000 characters")
+			q_req.Prompt = q_req.Prompt[:2000]
+			log.Println("Clipped prompt:\n", q_req.Prompt)
 		}
 		// check cache
 		cache.Lock.RLock()
