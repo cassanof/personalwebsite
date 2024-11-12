@@ -1,6 +1,7 @@
 {
   "name": "portfolio-website",
   "version": "1.0.0",
+  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -8,7 +9,7 @@
   },
   "devDependencies": {
     "eslint": "^7.27.0",
-    "vite": "^2.3.4"
+    "vite": "^4.5.0"
   },
   "dependencies": {
     "three": "^0.129.0",
