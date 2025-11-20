@@ -95,8 +95,6 @@ func main() {
 		MAX_QUEUE_SIZE = i
 	}
 
-	app.Static("/", STATIC_PATH)
-
 	file := createLogFile()
 	defer file.Close()
 
@@ -107,19 +105,22 @@ func main() {
 	// output both to console and file
 	log.SetOutput(io.MultiWriter(os.Stdout, file))
 
+	app.Use(compress.New(compress.Config{
+		Level: compress.LevelBestCompression,
+	}))
+
 	app.Post("/generate", generateEndpoint)
 	for i := 0; i < MAX_QUEUE_SIZE; i++ {
 		go generateQueueWorker()
 	}
 
-	// 404 Handler
-	app.Use(func(c *fiber.Ctx) error {
+	// Serve static files
+	app.Static("/", STATIC_PATH)
+
+	// 404 Handler - catches all unmatched routes
+	app.All("*", func(c *fiber.Ctx) error {
 		return c.SendFile(STATIC_PATH+"404.html", false)
 	})
-
-	app.Use(compress.New(compress.Config{
-		Level: compress.LevelBestCompression,
-	}))
 
 	app.Use(recover.New())
 

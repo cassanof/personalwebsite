@@ -8,13 +8,6 @@
     "serve": "vite preview"
   },
   "devDependencies": {
-    "eslint": "^7.27.0",
     "vite": "^4.5.0"
-  },
-  "dependencies": {
-    "three": "^0.129.0",
-    "typescript": "^4.3.2",
-    "p5js-wrapper": "^1.2.3",
-    "vite-plugin-handlebars": "^1.6.0"
   }
 }

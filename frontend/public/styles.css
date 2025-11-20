@@ -1,0 +1,122 @@
+/* gruvbox dark color palette */
+:root {
+    --bg0: #282828;
+    --bg1: #3c3836;
+    --bg2: #504945;
+    --fg0: #fbf1c7;
+    --fg1: #ebdbb2;
+    --fg2: #d5c4a1;
+    --red: #cc241d;
+    --green: #98971a;
+    --yellow: #d79921;
+    --blue: #458588;
+    --purple: #b16286;
+    --aqua: #689d6a;
+    --orange: #d65d0e;
+    --orange-bright: #fe8019;
+    --gray: #928374;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg0);
+    color: var(--fg1);
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica Neue', sans-serif;
+    line-height: 1.6;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+.container {
+    max-width: 45rem;
+    margin: 0 auto;
+}
+
+header {
+    margin-bottom: 2rem;
+}
+
+h1 {
+    color: var(--green);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 1.75rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+main {
+    font-size: 1.125rem;
+}
+
+main p {
+    margin-bottom: 1rem;
+}
+
+main p:last-child {
+    margin-bottom: 0;
+}
+
+footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--bg1);
+}
+
+.social-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-size: 1rem;
+}
+
+.social-links a {
+    color: var(--yellow);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.social-links a:hover {
+    color: var(--orange-bright);
+}
+
+a {
+    color: var(--orange-bright);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+a:hover {
+    color: var(--yellow);
+    text-decoration: underline;
+}
+
+/* responsive adjustments */
+@media (max-width: 640px) {
+    body {
+        padding: 1.5rem;
+    }
+    
+    h1 {
+        font-size: 1.25rem;
+    }
+    
+    main {
+        font-size: 0.875rem;
+    }
+    
+    .social-links {
+        gap: 1rem;
+        font-size: 0.8125rem;
+    }
+    
+    footer {
+        margin-top: 2rem;
+        padding-top: 1.5rem;
+    }
+}
+

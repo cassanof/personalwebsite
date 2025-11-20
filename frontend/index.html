@@ -1,279 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- Primary Meta Tags -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Federico Cassano's personal website">
     <title>Federico Cassano</title>
-    <meta name="title" content="Federico Cassano">
-    <meta name="description" content="Researcher with interests in artificial intelligence, programming languages, and security.">
-
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://federico.codes/">
-    <meta property="og:title" content="Federico Cassano">
-    <meta property="og:description" content="Researcher with interests in artificial intelligence, programming languages, and security.">
-    <meta property="og:image" content="assets/omega-bg-centered.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://federico.codes/">
-    <meta property="twitter:title" content="Federico Cassano">
-    <meta property="twitter:description" content="Researcher with interests in artificial intelligence, programming languages, and security.">
-    <meta property="twitter:image" content="assets/omega-bg-centered.jpg">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/favicons/favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/favicons/favicon-16x16.png">
     <link rel="manifest" href="assets/favicons/site.webmanifest">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/9cdffaf432.js" crossorigin="anonymous"></script>
-    <script data-goatcounter="https://federico.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/scheme.min.js"></script>
-  </head>
-  <body id="body">
-    <script type="module" src="./js/main.js"></script>
-    <script type="module" src="./js/sketch.js"></script>
-    <div id="bg-secondary" class="bg-secondary"></div>
-    <main id="main">
-
-      <header id="welcome">
-        <h1>Federico Cassano</h1>
-        <p>
-          Researcher<br />
-          <small>
-            with interests in 
-            <font color="#fb6a16">artificial intelligence</font>,
-            <font color="#81d8d0">programming languages</font>, and
-            <font color="#9f83a9">security</font>.
-          </small>
-          <ul class="icon">
-            <li>
-              <a href="https://scholar.google.com/citations?user=n8tK15oAAAAJ" target="_blank"
-                ><img src="assets/icons/scholar.png" alt="Google Scholar"
-              /></a>
-            </li>
-            <li>
-              <a href="https://github.com/cassanof" target="_blank"
-                ><img src="assets/icons/github.png" alt="GitHub"
-              /></a>
-            </li>
-            <li>
-              <a href="https://twitter.com/ellev3n11" target="_blank"
-                ><img src="assets/icons/twitter.png" alt="Twitter"
-              /></a>
-            </li>
-            <li>
-              <a href="https://www.linkedin.com/in/federicocassano/" target="_blank"
-                ><img src="assets/icons/linkedin.png" alt="linkedin"
-              /></a>
-            </li>
-          </ul>
-        </p>
-      </header>
-      <!-- <div id="chess" class="chess">
-        <p id="chess-status" class="chess-status"></p>
-      </div> -->
-
-      <section class="aboutme">
-        <h2 class="pb-4">About <font color="#84a463">Me</font></h2>
-        <img id="profile" 
-             src="assets/faccia2.jpg"
-             class="faccia"
-             alt="Federico Cassano"
-        />
-        <article>
-        <p>
-        Ciao! I'm <font color="#84a463">Federico</font>, a computer science researcher from Milan, Italy, working as a Research Scientist at Anysphere, building <a href="https://cursor.com/" class="link-offset-2 link-underline-success" target="_blank"><font color="#84a463">Cursor</font></a>'s code generation models.
-        </p>
-        <p>
-        My research focuses on advancing automated software engineering, with the ultimate goal of <font color="#fb6a16">fully automating the programming process</font>. I believe software should be customized to each individual's needs, rather than taking a one-size-fits-all approach that serves billions of users with the same solution.
-        </p>
-        <p>
-        To further this goal, I co-founded <a href="https://gammatau.ai/"
-            class="link-offset-2 link-underline-success"
-            target="_blank"><font color="#84a463">GammaTau AI</font></a>,
-        an independent group of 40+ researchers dedicated to democratizing access to programming through AI.
-        
-        Additionally, I'm an active contributor to the <a href="https://www.bigcode-project.org/docs/about/mission/"
-            class="link-offset-2 link-underline-success"
-            target="_blank"><font color="#84a463">BigCode</font></a>
-        project, which is responsible for developing the StarCoder family of large language models.
-        </p>
-        <p>
-        Prior to Cursor, I held research positions at Scale AI, Roblox, Trail of Bits, 
-        and 
-        <a href="https://khoury.northeastern.edu/~arjunguha/main/home/" 
-           class="link-offset-2 link-underline-success"
-           target="_blank"><font color="#84a463">Prof. Arjun Guha</font></a>'s research lab at Northeastern University.
-        </p>
-        <p>
-        I'm also honored to have served as the captain of the highly skilled
-        <a href="https://nuccdc.club/"
-           class="link-offset-2 link-underline-success"
-           target="_blank"><font color="#84a463">NUCCDC cybersecurity team</font></a>,
-        which has claimed the NECCDC championship title for three consecutive years.
-        </p>
-        </article>
-      </section>
-
-      <div id="codegen" class="codegen">
-        <div>
-          <textarea id="docString" placeholder="Purpose Statement">Produces the nth Fibonacci number.
-Uses a helper with an accumulator.</textarea>
-          <button id="generateButton">Generate</button>
-          <div class="spinner" id="spinner">
-          </div>
-          <pre id="outputCode" hidden><code class="language-scheme"></code></pre>
-        </div>
-        <p class="poweredBy">
-        <a 
-            href="https://arxiv.org/abs/2308.09895"
-            class="link-offset-2 link-underline-success"
-            target="_blank"><font color="#84a463">MultiPL-T</font></a>'d <b>1b</b> model running on a single <b>CPU</b> core!</p>
-      </div>
-      <section>
-        <h2 id="folio-headline"><font color="#f25e52">Academic</font> Portfolio</h2>
-        <h3 class="pb-4" style="text-align: center;">Awards</h3>
-        <ul class="pb-4" id="awards">
-          {{> award 
-            title='CRA Outstanding Undergraduate Researcher Award Finalist (2024)'
-            url='https://cra.org/about/awards/outstanding-undergraduate-researcher-award/'
-            description='Nominated as one of the top undergraduate CS researchers in the USA'
-          }}
-          {{> award 
-            title='Northeast Collegiate Cyber Defense Competition (NECCDC) Champion (2022-2024)'
-            url='https://www.khoury.northeastern.edu/northeastern-cyber-defense-team-wins-third-straight-regional-competition/'
-            description='Won the regional competition for the past three years in a row'
-          }}
-          {{> award 
-            title='Hudson Alpha Tech Challenge 1st (2021)'
-            url='https://devpost.com/software/teddy-f246gj'
-            description='Won the national hackathon with a team of 4 high schoolers'
-          }}
-          {{> award 
-            title='National Cyber League 2021 Top 1% (2021)'
-            url='https://nationalcyberleague.org/'
-            description='Placed in the top 1% of the national competition as a high schooler'
-          }}
-        </ul>
-        <h3 class="pb-4" style="text-align: center;">Publications</h3>
-        <ul class="pb-4" id="pubs">
-          {{> publication 
-            authors='Yuxiang Wei, Federico Cassano, Jiawei Liu, Yifeng Ding, Naman Jain, Zachary Mueller, Harm de Vries, Leandro Von Werra, Arjun Guha, Lingming Zhang'
-            title='SelfCodeAlign: Self-Alignment for Code Generation'
-            url='https://arxiv.org/abs/2410.24198'
-            journal='Neural Information Processing Systems'
-            abbrev='NeurIPS'
-            year='2024'
-          }}
-          {{> publication 
-            authors='Evan Z Wang, Federico Cassano, Catherine Wu, Yunfeng Bai, William Song, Vaskar Nath, Ziwen Han, Sean M. Hendryx, Summer Yue, Hugh Zhang'
-            title='Planning In Natural Language Improves LLM Search For Code Generation'
-            url='https://arxiv.org/abs/2409.03733'
-            journal='preprint arXiv:2409.03733'
-            abbrev='arXiv'
-            year='2024'
-          }}
-          {{> publication 
-            authors='Anton Lozhkov, Raymond Li, Loubna Ben Allal, Federico Cassano, Joel Lamy-Poirier, Nouamane Tazi, et al.'
-            title='StarCoder 2 and The Stack v2: The Next Generation'
-            url='https://arxiv.org/abs/2402.19173'
-            journal='preprint arXiv:2402.19173'
-            abbrev='arXiv'
-            year='2024'
-          }}
-          {{> publication 
-            authors='Federico Cassano, Luisa Li, Akul Sethi, Noah Shinn, Abby Brennan-Jones, Anton Lozhkov, Carolyn Jane Anderson, Arjun Guha'
-            title='Can It Edit? Evaluating the Ability of Large Language Models to Follow Code Editing Instructions'
-            url='https://arxiv.org/abs/2312.12450'
-            abbrev='COLM'
-            journal='The First Conference on Language Modeling'
-            year='2024'
-            ar='28'
-            journal2='The First International Workshop on Large Language Model for Code'
-            abbrev2='ICSE Workshop'
-            year2='2024'
-          }}
-          {{> publication 
-            authors='Federico Cassano, John Gouwar, Francesca Lucchetti, Claire Schlesinger, Carolyn Jane Anderson, Michael Greenberg, Abhinav Jangda, Arjun Guha'
-            title='Knowledge Transfer from High-Resource to Low-Resource Programming Languages for Code LLMs'
-            url='https://arxiv.org/abs/2308.09895'
-            abbrev='OOPSLA'
-            journal='ACM SIGPLAN Conference on Object-Oriented Programming, Systems, Languages, and Applications'
-            year='2024'
-            ar='29'
-          }}
-          {{> publication 
-            authors='Noah Shinn, Federico Cassano, Edward Berman, Ashwin Gopinath, Karthik Narasimhan, Shunyu Yao'
-            title='Reflexion: Language Agents with Verbal Reinforcement Learning'
-            url='https://arxiv.org/abs/2303.11366'
-            journal='Neural Information Processing Systems'
-            abbrev='NeurIPS'
-            year='2023'
-            ar='26'
-          }}
-          {{> publication 
-            authors='Federico Cassano, John Gouwar, Daniel Nguyen, Sydney Nguyen, Luna Phipps-Costin, Donald Pinckney, Ming-Ho Yee, Yangtian Zi, Carolyn Jane Anderson, Molly Q Feldman, Arjun Guha, Michael Greenberg, Abhinav Jangda'
-            title='MultiPL-E: A Scalable and Extensible Approach to Benchmarking Neural Code Generation'
-            url='https://arxiv.org/abs/2208.08227'
-            journal='ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering'
-            abbrev='ESEC/FSE'
-            year='2023'
-            abbrev2='TSE'
-            journal2='IEEE Transactions on Software Engineering'
-            year2='2023'
-          }}
-          {{> publication 
-            authors='Federico Cassano, Ming-Ho Yee, Noah Shinn, Arjun Guha, Steven Holtzen'
-            title='Type Prediction With Program Decomposition and Fill-in-the-Type Training'
-            url='https://arxiv.org/abs/2305.17145'
-            journal='preprint arXiv:2305.17145'
-            abbrev='arXiv'
-            year='2023'
-          }}
-          {{> publication 
-            authors='Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell'
-            title='npm-follower: A Complete Dataset Tracking the NPM Ecosystem'
-            url='https://arxiv.org/abs/2308.12545'
-            journal='ACM Joint European Software Engineering Conference and Symposium on the Foundations of Software Engineering'
-            abbrev='ESEC/FSE'
-            year='2023'
-          }}
-          {{> publication 
-            authors='Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell'
-            title='A Large Scale Analysis of Semantic Versioning in NPM'
-            url='https://arxiv.org/abs/2304.00394'
-            journal='20th International Conference on Mining Software Repositories'
-            abbrev='MSR'
-            year='2023'
-            ar='36'
-          }}
-          {{> publication 
-            authors='Donald Pinckney, Federico Cassano, Arjun Guha, Jonathan Bell, Massimiliano Culpo, Todd Gamblin'
-            title='Flexible and Optimal Dependency Management via Max-SMT'
-            url='https://arxiv.org/abs/2203.13737'
-            journal='IEEE/ACM International Conference on Software Engineering'
-            abbrev='ICSE'
-            year='2023'
-            ar='26'
-          }}
-          {{> publication 
-            authors='Federico Cassano, Charles Bershatsky, Jacob Ginesin, Sasha Bashenko'
-            title='SafeLLVM: LLVM Without The ROP Gadgets!'
-            url='https://arxiv.org/abs/2305.06092'
-            journal='preprint arXiv:2305.06092'
-            abbrev='arXiv'
-            year='2023'
-          }}
-        </ul>
-      </section>
-      <footer>
-        Contact me: federico [dot] cassano [at] federico [dot] codes
-      </footer>
-    </main>
-  </body>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Federico Cassano</h1>
+        </header>
+        <main>
+            <p>I once dreamed of automating programming. At <a href="https://cursor.com">Cursor</a>, I'm trying to give it a fair shot.</p>
+            <p>I currently lead the research behind the <a href="https://cursor.com/blog/composer">Composer</a> series of models.</p>
+            <p>During my unfinished undergrad at Northeastern, I published academic research with Arjun Guha, and held research positions at Scale AI, Roblox, and Trail of Bits.</p>
+            <p>I grew up in Italy, spending most of my days playing and hosting counter-strike servers.</p>
+        </main>
+        <footer>
+            <nav class="social-links">
+                <a href="https://scholar.google.com/citations?user=n8tK15oAAAAJ">Google Scholar</a>
+                <a href="https://github.com/cassanof">GitHub</a>
+                <a href="https://x.com/ellev3n11">X</a>
+                <a href="https://www.linkedin.com/in/federicocassano/">LinkedIn</a>
+            </nav>
+        </footer>
+    </div>
+</body>
 </html>
